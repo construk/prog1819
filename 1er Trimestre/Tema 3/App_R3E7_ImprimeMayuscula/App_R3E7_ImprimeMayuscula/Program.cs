@@ -1,8 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*-------------------------------------------------------------------------------------------------------------
+ *  Programa:		    Imprime Mayusculas
+ *  Autor:		        Francisco J. Gómez Florido
+ *  Versión:		    1.0 oct de 2018
+ *  Descripción:		Esta aplicación escribe en mayúsculas.
+-------------------------------------------------------------------------------------------------------------*/
+
+using System;
 
 namespace App_R3E7_ImprimeMayuscula
 {
@@ -12,7 +15,7 @@ namespace App_R3E7_ImprimeMayuscula
         {
             char teclaEscape = '*';
             char teclaLeida;
-
+            Console.WriteLine("Este programa escribe en mayusculas todo lo que escribas");
             do
             {
                 teclaLeida = Console.ReadKey(true).KeyChar;

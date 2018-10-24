@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*-------------------------------------------------------------------------------------------------------------
+ *  Programa:		    MENU ÁREAS
+ *  Autor:		        Francisco J. Gómez Florido
+ *  Versión:		    1.0 oct de 2018
+ *  Descripción:		Esta aplicación te muestra un menú con diversas opciones donde se puede calcular el área de un cuadrado, rectángulo y triángulo
+-------------------------------------------------------------------------------------------------------------*/
+using System;
 using System.Threading;
 
 namespace App_R3E5_MenuAreas
@@ -34,14 +40,14 @@ namespace App_R3E5_MenuAreas
                 {
                     case '0':                                               //OPCION PARA SALIR
                         noSalir = false;                                    //PONE A FALSE EL BOOLEANO QUE MANTIENE EL BUCLE DEL MENÚ
-                        Console.SetCursorPosition(Console.CursorLeft-16, Console.CursorTop+3); //POSICIONA PARA INDICACIÓN DE QUE EL PROGRAMA ESTÁ ACABANDO
-                        Console.Write("Saliendo");                          //ESCRIBE
-                        Thread.Sleep(400);                                  //PAUSA
-                        Console.Write(".");                                 //ESCRIBE
-                        Thread.Sleep(400);                                  //PAUSA
-                        Console.Write(".");                                 //ESCRIBE
-                        Thread.Sleep(400);                                  //PAUSA
-                        Console.Write(".");                                 //ESCRIBE
+                        Console.SetCursorPosition(Console.CursorLeft-16, Console.CursorTop+3); 
+                        Console.Write("Saliendo");                          
+                        Thread.Sleep(400);                                  
+                        Console.Write(".");                                 
+                        Thread.Sleep(400);                                  
+                        Console.Write(".");                                 
+                        Thread.Sleep(400);                                  
+                        Console.Write(".");                                 
                         break;
                     case '1':                                               //OPCIÓN CALCULAR AREA CUADRADO
                         double ladoCuadrado;
