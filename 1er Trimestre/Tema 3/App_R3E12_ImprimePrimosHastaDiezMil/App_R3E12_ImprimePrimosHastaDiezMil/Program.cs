@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*-------------------------------------------------------------------------------------------------------------
+ *  Programa:		    ImprimePrimosHastaDiezMil
+ *  Autor:		        Francisco J. Gómez Florido
+ *  Versión:		    1.0 oct de 2018
+ *  Descripción:		Esta aplicación te muestra todos los números que son primos hasta diez mil
+-------------------------------------------------------------------------------------------------------------*/
+using System;
 
 namespace App_R3E12_ImprimePrimosHastaDiezMil
 {
