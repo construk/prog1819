@@ -14,7 +14,7 @@ namespace App_R3E14_FormatoNumeros
         {
             double num1, num2, num3, num4, num5, num6;
             int num7;
-            Console.WriteLine("Escribir cantidades a formatear (5 números):");
+            Console.WriteLine("Escribir cantidades a formatear (7 números):");
             Console.Write("1º: ");
             num1 = double.Parse(Console.ReadLine());
             Console.Write("2º: ");
