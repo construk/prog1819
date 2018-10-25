@@ -46,14 +46,5 @@ namespace App_R3E21_Quiniela
             Console.WriteLine("Hay {0} 2".PadLeft(24), contador2);
             Console.ReadLine();
         }
-
-
-        private static void GeneraResultados(string resultado)
-        {
-            for (int i = 0; i < 15; i++)
-            {
-                Console.WriteLine(resultado.PadLeft(20));
-            }
-        }
     }
 }
