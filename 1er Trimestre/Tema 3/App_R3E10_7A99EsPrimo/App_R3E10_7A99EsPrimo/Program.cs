@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*-------------------------------------------------------------------------------------------------------------
+ *  Programa:		    Es Primo
+ *  Autor:		        Francisco J. Gómez Florido
+ *  Versión:		    1.0 oct de 2018
+ *  Descripción:		Esta aplicación te dirá si el número introducido es primo o no.
+-------------------------------------------------------------------------------------------------------------*/
+using System;
 
 namespace App_R3E10_7A99EsPrimo
 {
