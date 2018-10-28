@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*-------------------------------------------------------------------------------------------------------------
+ *  Programa:		    Mayus
+ *  Autor:		        Francisco J. Gómez Florido
+ *  Versión:		    1.1 oct de 2018
+ *  Descripción:		Esta aplicación escribe en mayúsculas.
+-------------------------------------------------------------------------------------------------------------*/
+using System;
 
 namespace App_R4E8_Mayus
 {
