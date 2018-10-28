@@ -74,6 +74,5 @@ namespace App_R4E3_EsPrimoONo
                 return numero % divisor == 0 ? false : true;        //y si el numero entre el divisor es 0 será falso y si no será verdadero
             }
         }
-
     }
 }
