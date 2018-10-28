@@ -38,7 +38,7 @@ namespace App_R4E01_RelojDigital
                             Thread.Sleep(MILLISECONDS_SECOND);
                         }
         }
-
+        
         /*MÉTODOS QUE OBTIENEN LA HORA, LOS MINUTOS Y LOS SEGUNDOS PARA INICIAR EL RELOJ
           EXISTE UN PROPIEDAD QUE OBTIENE HORA, MINUTOS, SEGUNDOS,...(DESECHADO)
         
