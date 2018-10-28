@@ -13,16 +13,16 @@ namespace App_R4E13_FactorialIterativa
     {
         static void Main(string[] args)
         {
-            long numero;
+            double numero;
 
             Console.Write("Introduce un número:");
-            numero = long.Parse(Console.ReadLine());
+            numero = double.Parse(Console.ReadLine());
             Console.WriteLine("{0:0,0}", FactorialIterativa(numero));
             Console.ReadLine();
         }
         public static double FactorialIterativa(double numero)
         {
-            int factorial = 1;
+            double factorial = 1;
             if (numero == 0)
             {
                 return 1;
@@ -38,7 +38,7 @@ namespace App_R4E13_FactorialIterativa
         }
         public static decimal FactorialIterativa(decimal numero)
         {
-            int factorial = 1;
+            decimal factorial = 1;
             if (numero == 0)
             {
                 return 1;
@@ -54,7 +54,7 @@ namespace App_R4E13_FactorialIterativa
         }
         public static long FactorialIterativa(long numero)
         {
-            int factorial = 1;
+            long factorial = 1;
             if (numero == 0)
             {
                 return 1;
@@ -70,7 +70,7 @@ namespace App_R4E13_FactorialIterativa
         }
         public static float FactorialIterativa(float numero)
         {
-            int factorial = 1;
+            float factorial = 1;
             if (numero == 0)
             {
                 return 1;
