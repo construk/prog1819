@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*-------------------------------------------------------------------------------------------------------------
+ *  Programa:		    SumaNNumerosIterativa
+ *  Autor:		        Francisco J. Gómez Florido
+ *  Versión:		    1.0 oct de 2018
+ *  Descripción:		Esta aplicación calcula la suma de gauss de un número
+-------------------------------------------------------------------------------------------------------------*/
+using System;
 
 namespace App_R4E15_SumaNNumerosIterativa
 {
