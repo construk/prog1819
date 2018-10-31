@@ -18,7 +18,8 @@ namespace App_R4E8_Mayus
             
             do
             {
-                Console.Write(Mayus(Console.ReadKey(true)));
+                tecla = Console.ReadKey(true);
+                Console.Write(Mayus(tecla));
             } while (tecla.KeyChar!='*');
 
         }
