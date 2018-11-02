@@ -33,7 +33,7 @@ namespace App_R4E17_RestoReal
 
             Console.Write("Introduce divisor: ");               //DIVISOR
             aux = Console.ReadLine();
-            while (!double.TryParse(aux, out divisor))
+            while (!double.TryParse(aux, out divisor)||divisor==0)  //EVITAR DIVIDIR POR 0
             {
                 Console.Write("Introduce un dato válido: ");
                 aux = Console.ReadLine();
