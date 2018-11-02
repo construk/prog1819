@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*-------------------------------------------------------------------------------------------------------------
+ *  Programa:		    EsPrimoONo
+ *  Autor:		        Francisco J. Gómez Florido
+ *  Versión:		    1.1 oct de 2018
+ *  Descripción:		Esta aplicación incluye una sobrecargar para EsPrimo donde recibe un dato tipo int y controla los número negativos  
+-------------------------------------------------------------------------------------------------------------*/
+using System;
 
 namespace Cons
 {
