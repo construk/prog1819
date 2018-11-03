@@ -27,7 +27,14 @@ namespace App_R4E14_SumaNNumerosRecursiva
             }
 
             //RESULTADO
-            Console.WriteLine(SumaNNumeros(numero));
+            try
+            {
+                Console.WriteLine(SumaNNumeros(numero));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             Console.ReadLine();
         }
         /// <summary>
@@ -44,6 +51,10 @@ namespace App_R4E14_SumaNNumerosRecursiva
             else if (nNumeros < 2)
             {
                 return 1;
+            }
+            else if (nNumeros>5000)
+            {
+                throw new StackOverflowException();
             }
             else
                 return nNumeros + SumaNNumeros(nNumeros - 1);

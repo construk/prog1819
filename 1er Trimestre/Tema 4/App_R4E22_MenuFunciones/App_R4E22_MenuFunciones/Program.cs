@@ -254,7 +254,7 @@ namespace App_R4E22_MenuFunciones
                         {
                             Console.Write("Introduce una nota: ");
                             aux3 = Console.ReadLine();
-                            while (!double.TryParse(aux3, out notaLeida))
+                            while (!double.TryParse(aux3, out notaLeida) || notaLeida < 0)
                             {
                                 Console.Write("Introduce una nota válida: ");
                                 aux3 = Console.ReadLine();
@@ -265,9 +265,15 @@ namespace App_R4E22_MenuFunciones
                                 contador++;
                             }
                         } while (notaLeida != 0);
-
-                        media = sumaNotas / contador;
-                        Console.WriteLine("\nLa media de las {0} notas es {1:F2}", contador, media);
+                        try
+                        {
+                            media = sumaNotas / contador;
+                            Console.WriteLine("\nLa media de las {0} notas es {1:F2}", contador, media);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                         Console.ReadLine();
                         break;
                     #endregion
@@ -296,16 +302,16 @@ namespace App_R4E22_MenuFunciones
                     #region Factorial Recursiva
                     case '8':                                                       //OPCION FACTORIAL RECURSIVA
                         Console.Clear();
-                        double numero2=-2;
+                        double numero2 = -2;
                         Console.WriteLine("Este programa calcula el factorial de cualquier número");
-                        
+
                         do
                         {
                             try
                             {
                                 Console.Write("Introduce número (-1 para salir): ");
                                 numero2 = double.Parse(Console.ReadLine());
-                                if (numero2>-1)
+                                if (numero2 > -1)
                                 {
                                     Console.WriteLine("{0:0,0}", FactorialRecursiva(numero2));
                                 }
@@ -316,7 +322,7 @@ namespace App_R4E22_MenuFunciones
                                 Console.WriteLine(e.Message);
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                             }
-                        } while (numero2!=-1);
+                        } while (numero2 != -1);
                         break;
                     #endregion
                     #region Factorial Iterativa
@@ -355,27 +361,41 @@ namespace App_R4E22_MenuFunciones
                         }
 
                         //RESULTADO
-                        Console.WriteLine(SumaNNumerosRecursiva(numero5));
+                        try
+                        {
+                            Console.WriteLine(SumaNNumerosRecursiva(numero5));
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                         Console.ReadLine();
                         break;
-                        #endregion
+                    #endregion
                     #region Suma Gaussiana Iterativa
                     case 'B':
                     case 'b':
                         Console.Clear();
                         string aux6;
-                        long numero7;
+                        long numero7 = -1;
                         Console.WriteLine("Programa que hace la suma gaussiana");
                         do
                         {
-                            Console.Write("Introduce un número (0 para salir): ");
-                            aux6 = Console.ReadLine();
-                            while (!long.TryParse(aux6, out numero7))
+                            try
                             {
-                                Console.Write("Introduce un número válido: ");
+                                Console.Write("Introduce un número (0 para salir): ");
                                 aux6 = Console.ReadLine();
+                                while (!long.TryParse(aux6, out numero7))
+                                {
+                                    Console.Write("Introduce un número válido: ");
+                                    aux6 = Console.ReadLine();
+                                }
+                                Console.WriteLine(SumaNNumerosIterativa(numero7));
                             }
-                            Console.WriteLine(SumaNNumerosIterativa(numero7));
+                            catch (Exception e)
+                            {
+                                Console.WriteLine(e.Message);
+                            }
                         } while (numero7 != 0);
                         break;
                     #endregion
@@ -408,11 +428,17 @@ namespace App_R4E22_MenuFunciones
                         }
 
                         //APLICANDO LA FÚNCIÓN RECURSIVA
-                        Console.WriteLine(PotenciaRecursiva(numero8, exponente));
+                        try
+                        {
+                            Console.WriteLine(PotenciaRecursiva(numero8, exponente));
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                         Console.ReadLine();
-
                         break;
-                        #endregion
+                    #endregion
                     #region Resto real 
                     case 'D':
                     case 'd':
@@ -437,22 +463,29 @@ namespace App_R4E22_MenuFunciones
 
                         Console.Write("Introduce divisor: ");               //DIVISOR
                         aux8 = Console.ReadLine();
-                        while (!double.TryParse(aux8, out divisor)||divisor<1)
+                        while (!double.TryParse(aux8, out divisor) || divisor < 1)
                         {
                             Console.Write("Introduce un dato válido: ");
                             aux8 = Console.ReadLine();
                         }
 
                         //SI EL RESULTADO DE LA DIVISIÓN DA DECIMALES (UN NÚMERO REAL) GUARDA EL DATO EN LA VARIABLE RESTO, SINO DEVUELVE 0 (Y EJECUTA ELSE)
-                        if (ParteDecimal(dividendo / divisor, out resto))
+                        try
                         {
-                            Console.WriteLine("El dividendo {0} dividido entre el divisor {1} es igual a: {2}" +
-                            "\nParte entera: {3}\tParte decimal: {4}", dividendo, divisor, dividendo / divisor, (int)(dividendo / divisor), resto);
-                        }
-                        else
-                            Console.WriteLine("El dividendo {0} dividido entre el divisor {1} es igual a: {2}" +
-                            "\nParte entera: {3}\tParte decimal: {4}", dividendo, divisor, dividendo / divisor, (int)(dividendo / divisor), resto);
+                            if (ParteDecimal(dividendo / divisor, out resto))
+                            {
+                                Console.WriteLine("El dividendo {0} dividido entre el divisor {1} es igual a: {2}" +
+                                "\nParte entera: {3}\tParte decimal: {4}", dividendo, divisor, dividendo / divisor, (int)(dividendo / divisor), resto);
+                            }
+                            else
+                                Console.WriteLine("El dividendo {0} dividido entre el divisor {1} es igual a: {2}" +
+                                "\nParte entera: {3}\tParte decimal: {4}", dividendo, divisor, dividendo / divisor, (int)(dividendo / divisor), resto);
 
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                         Console.ReadLine();
                         break;
                     #endregion
@@ -478,13 +511,20 @@ namespace App_R4E22_MenuFunciones
 
                             string esOFue = anio >= DateTime.Now.Year ? "es" : "fue";   //FORMATO PARA STRING
 
-                            if (EsBisiesto(anio))   //SI ES BISIESTO
+                            try
                             {
-                                Console.WriteLine("El año {0} " + esOFue + " bisiesto", anio);
+                                if (EsBisiesto(anio))   //SI ES BISIESTO
+                                {
+                                    Console.WriteLine("El año {0} " + esOFue + " bisiesto", anio);
+                                }
+                                else //SI NO ES BISIESTO
+                                {
+                                    Console.WriteLine("El año {0} no " + esOFue + " bisiesto", anio);
+                                }
                             }
-                            else //SI NO ES BISIESTO
+                            catch (Exception e)
                             {
-                                Console.WriteLine("El año {0} no " + esOFue + " bisiesto", anio);
+                                Console.WriteLine(e.Message);
                             }
                         } while (anio != 0);
                         break;
@@ -510,11 +550,19 @@ namespace App_R4E22_MenuFunciones
                                 aux10 = Console.ReadLine();
                             }
                             //ESCRIBE EL NÚMERO DE LA SUCESIÓN DE FIBONACCI INDICADO
-                            if (numero9>=0)
+                            try
                             {
-                                Console.WriteLine(FibonacciRecursivo(numero9));
-                            }else
-                                Console.WriteLine("Número no válido");
+                                if (numero9 >= 0)
+                                {
+                                    Console.WriteLine(FibonacciRecursivo(numero9));
+                                }
+                                else
+                                    Console.WriteLine("Número no válido");
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine(e.Message);
+                            }
                         } while (numero9 != -1);
                         break;
                     #endregion
@@ -655,7 +703,6 @@ namespace App_R4E22_MenuFunciones
                         Console.CursorTop += 2;
                         Console.WriteLine("Pulse cualquier tecla para volver al menú principal");
                         Console.CursorVisible = false;
-                        while (!Console.KeyAvailable) { }
                         break;
                     #endregion
                     #region Area Triángulo
@@ -690,7 +737,6 @@ namespace App_R4E22_MenuFunciones
                         Console.CursorTop += 2;
                         Console.WriteLine("Pulse cualquier tecla para volver al menú principal");
                         Console.CursorVisible = false;
-                        while (!Console.KeyAvailable) { }
                         break;
                     #endregion
                     #region Acertar Número
@@ -751,7 +797,7 @@ namespace App_R4E22_MenuFunciones
             } while (noSalir);                                                      //MIENTRAS NO SE PULSE 0 EN EL MENÚ NO CAMBIA LA VARIABLE noSalir DE TRUE A FALSE
         }
         #endregion
-                    
+
         #region Pintar Menu
         private static void LimpiaYPintaMenuPrincipal()
         {
@@ -851,15 +897,15 @@ namespace App_R4E22_MenuFunciones
             Console.SetCursorPosition(2, 3);
             for (int i = 0; i < opciones.Length; i++)
             {
-                if (i>=0&&i<=8)
+                if (i >= 0 && i <= 8)
                 {
                     Console.WriteLine(i + 1 + ". " + opciones[i]);
                 }
                 else
                 {
-                    Console.WriteLine((char)(i + (int)'a'-9) + ". " + opciones[i]);
+                    Console.WriteLine((char)(i + (int)'a' - 9) + ". " + opciones[i]);
                 }
-                
+
                 Console.CursorLeft = 2;
             }
             Console.SetCursorPosition(1, opciones.Length + 6);
@@ -1081,6 +1127,10 @@ namespace App_R4E22_MenuFunciones
         {
             if (numero2 <= 1)
                 return 1;
+            else if (numero2 > 170)
+            {
+                throw new StackOverflowException();
+            }
             else
                 return numero2 * FactorialRecursiva(numero2 - 1);
         }
@@ -1088,6 +1138,10 @@ namespace App_R4E22_MenuFunciones
         {
             if (numero2 <= 1)
                 return 1;
+            else if (numero2 > 170)
+            {
+                throw new StackOverflowException();
+            }
             else
                 return numero2 * FactorialRecursiva(numero2 - 1);
         }
@@ -1095,20 +1149,40 @@ namespace App_R4E22_MenuFunciones
         {
             if (numero2 <= 1)
                 return 1;
+            else if (numero2 > 170)
+            {
+                throw new StackOverflowException();
+            }
             else
                 return numero2 * FactorialRecursiva(numero2 - 1);
         }
         public static double FactorialRecursiva(double numero2)
         {
-            if (numero2 <= 1)
-                return 1;
-            else
-                return numero2 * FactorialRecursiva(numero2 - 1);
+            try
+            {
+                if (numero2 <= 1)
+                    return 1;
+                else if(numero2>170)
+                {
+                    throw new StackOverflowException();
+                }
+                else
+                    return numero2 * FactorialRecursiva(numero2 - 1);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return -1;
+            }
         }
         public static float FactorialRecursiva(float numero2)
         {
             if (numero2 <= 1)
                 return 1;
+            else if (numero2 > 170)
+            {
+                throw new StackOverflowException();
+            }
             else
                 return numero2 * FactorialRecursiva(numero2 - 1);
         }
@@ -1116,18 +1190,26 @@ namespace App_R4E22_MenuFunciones
         #region Factorial Iterativa
         public static double FactorialIterativa(double numero3)
         {
-            double factorial = 1;
-            if (numero3 == 0)
+            try
             {
-                return 1;
-            }
-            else
-            {
-                for (int i = 1; i <= numero3; i++)
+                double factorial = 1;
+                if (numero3 == 0)
                 {
-                    factorial *= i;
+                    return 1;
                 }
-                return factorial;
+                else
+                {
+                    for (int i = 1; i <= numero3; i++)
+                    {
+                        factorial *= i;
+                    }
+                    return factorial;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return -1;
             }
         }
         public static decimal FactorialIterativa(decimal numero3)
@@ -1148,34 +1230,50 @@ namespace App_R4E22_MenuFunciones
         }
         public static long FactorialIterativa(long numero3)
         {
-            long factorial = 1;
-            if (numero3 == 0)
+            try
             {
-                return 1;
-            }
-            else
-            {
-                for (int i = 1; i <= numero3; i++)
+                long factorial = 1;
+                if (numero3 == 0)
                 {
-                    factorial *= i;
+                    return 1;
                 }
-                return factorial;
+                else
+                {
+                    for (int i = 1; i <= numero3; i++)
+                    {
+                        factorial *= i;
+                    }
+                    return factorial;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return -1;
             }
         }
         public static float FactorialIterativa(float numero3)
         {
-            float factorial = 1;
-            if (numero3 == 0)
+            try
             {
-                return 1;
-            }
-            else
-            {
-                for (int i = 1; i <= numero3; i++)
+                float factorial = 1;
+                if (numero3 == 0)
                 {
-                    factorial *= i;
+                    return 1;
                 }
-                return factorial;
+                else
+                {
+                    for (int i = 1; i <= numero3; i++)
+                    {
+                        factorial *= i;
+                    }
+                    return factorial;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return -1;
             }
         }
         #endregion
@@ -1188,16 +1286,28 @@ namespace App_R4E22_MenuFunciones
         /// <returns>devuelve el número de gauus</returns>
         public static long SumaNNumerosRecursiva(long nNumeros)
         {
-            if (nNumeros < 1)
+            try
             {
-                return 0;
+                if (nNumeros < 1)
+                {
+                    return 0;
+                }
+                else if (nNumeros < 2)
+                {
+                    return 1;
+                }
+                else if (nNumeros>7000)
+                {
+                    throw new StackOverflowException();
+                }
+                else
+                    return nNumeros + SumaNNumerosRecursiva(nNumeros - 1);
             }
-            else if (nNumeros < 2)
+            catch (Exception e)
             {
-                return 1;
+                Console.WriteLine(e.Message);
+                return -1;
             }
-            else
-                return nNumeros + SumaNNumerosRecursiva(nNumeros - 1);
         }
         public static long SumaNNumerosIterativa(long sumarHasta)
         {
@@ -1212,13 +1322,30 @@ namespace App_R4E22_MenuFunciones
         #region Potencia Recursiva
         public static double PotenciaRecursiva(int numero8, int exponente)
         {
-            if (exponente == 0) //Caso base: Cuando el exponente es 0 siempre devuelve 1
+            try
             {
-                return 1;
+                if (exponente<0||exponente>5000)
+                {
+                    throw new StackOverflowException();
+                }
+                else if (exponente == 0) //Caso base: Cuando el exponente es 0 siempre devuelve 1
+                {
+                    return 1;
+                }
+                else
+                {
+                    return numero8 * PotenciaRecursiva(numero8, exponente - 1);
+                }
             }
-            else
+            catch (StackOverflowException e)
             {
-                return numero8 * PotenciaRecursiva(numero8, exponente - 1);
+                Console.WriteLine(e.Message);
+                return -1;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return -1;
             }
         }
         #endregion
@@ -1232,6 +1359,11 @@ namespace App_R4E22_MenuFunciones
             else if (numero9 == 1) //CASO BASE 2: 1
             {
                 return 1;
+            }
+            else if (numero9>10000)
+            {
+                throw new StackOverflowException();
+                return -1;
             }
             else
             {

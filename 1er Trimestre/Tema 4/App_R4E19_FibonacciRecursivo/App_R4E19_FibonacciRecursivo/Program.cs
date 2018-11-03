@@ -76,6 +76,10 @@ namespace App_R4E19_FibonacciRecursivo
             {
                 return 1;
             }
+            else if (numero>5000)
+            {
+                throw new StackOverflowException();
+            }
             else
             {
                 return FibonacciRecursivo(numero - 1) + FibonacciRecursivo(numero - 2);

@@ -89,7 +89,11 @@ namespace App_R4E12_FactorialRecursiva
             {
                 throw new FactorialNoNegativeException();
             }
-            if (numero <= 1)
+            else if (numero>170)
+            {
+                throw new StackOverflowException();
+            }
+            else if (numero <= 1)
                 return 1;
             else
                 return numero * FactorialRecursiva(numero - 1);
