@@ -18,42 +18,33 @@ namespace App_R4E12_FactorialRecursiva
         public override string Message
         { get { return mensajeExcepcion; } }
 
-        public FactorialNoNegativeException()
-        {
-            ConsoleColor colorTexto = new ConsoleColor();
-            Console.ForegroundColor = colorTexto;
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(Message);
-            Console.ForegroundColor = colorTexto;
-        }
+        public FactorialNoNegativeException():base()
+        {}
+        public FactorialNoNegativeException(string mensaje):base(mensaje)
+        { mensajeExcepcion = mensaje; }
 
-        public FactorialNoNegativeException(string message) : base(message)
-        {
-            ConsoleColor colorTexto = new ConsoleColor();
-            Console.ForegroundColor = colorTexto;
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(message);
-            Console.ForegroundColor = colorTexto;
-        }
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            double numero;
-            Console.WriteLine("Este programa calcula el factorial de cualquier número");
-            try
+            double numero=-2;   //NUMERO INTRODUCIDO
+            Console.WriteLine("Este programa calcula el factorial de cualquier número (máximo 170)");
+            do
             {
-                Console.Write("Introduce un número entero no negativo: ");
-                numero = double.Parse(Console.ReadLine());
-                Console.WriteLine("{0:0,0}", FactorialRecursiva(numero));
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            Console.ReadLine();
+                try
+                {
+                    Console.Write("Introduce un número entero no negativo (Introduzca -1 para salir): "); 
+                    numero = double.Parse(Console.ReadLine());
+                    if (numero != -1)                                                               //SI numero != -1 REALIZAR FACTORIAL
+                        Console.WriteLine("{0:0,0}", FactorialRecursiva(numero));
+                }
+                catch (Exception e)     //CAPTURA DE EXCEPCIONES
+                {
+                    Console.WriteLine(e.Message);
+                }
+            } while (numero != -1);     //SALIDA DEL PROGRAMA
         }
 
         //EL FACTORIAL MAYOR ACEPTADO CON DECIMAL ES 27, CON DOUBLE 170

@@ -15,17 +15,20 @@ namespace App_R4E15_SumaNNumerosIterativa
             string aux;
             long numero;
             Console.WriteLine("Programa que hace la suma gaussiana");
-            do
-            {
-                Console.Write("Introduce un número (0 para salir): ");
-                aux = Console.ReadLine();
-                while(!long.TryParse(aux,out numero))
+            try { 
+                do
                 {
-                    Console.Write("Introduce un número válido: ");
-                    aux=Console.ReadLine();
-                }
-                Console.WriteLine(SumaNNumerosIterativa(numero));
-            } while(numero!=0);
+                    Console.Write("Introduce un número (0 para salir): ");
+                    aux = Console.ReadLine();
+                    while(!long.TryParse(aux,out numero))
+                    {
+                        Console.Write("Introduce un número válido: ");
+                        aux=Console.ReadLine();
+                    }
+                    Console.WriteLine(SumaNNumerosIterativa(numero));
+                } while(numero!=0);
+            }catch(Exception e)
+            { Console.WriteLine(e.Message); }
         }
         public static long SumaNNumerosIterativa(long sumarHasta)
         {

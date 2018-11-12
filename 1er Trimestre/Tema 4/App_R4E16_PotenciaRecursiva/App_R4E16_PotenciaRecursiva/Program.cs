@@ -44,13 +44,30 @@ namespace App_R4E16_PotenciaRecursiva
         }
         public static double PotenciaRecursiva(int numero, int exponente)
         {
-            if (exponente == 0) //Caso base: Cuando el exponente es 0 siempre devuelve 1
+            try
             {
-                return 1;
+                if (exponente < 0 || exponente > 500 || numero > 9000)
+                {
+                    throw new StackOverflowException();
+                }
+                else if (exponente == 0) //Caso base: Cuando el exponente es 0 siempre devuelve 1
+                {
+                    return 1;
+                }
+                else
+                {
+                    return numero * PotenciaRecursiva(numero, exponente - 1);
+                }
             }
-            else    
+            catch (StackOverflowException e)
             {
-                return numero * PotenciaRecursiva(numero, exponente - 1);
+                Console.WriteLine(e.Message);
+                return -1;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return -1;
             }
         }
     }

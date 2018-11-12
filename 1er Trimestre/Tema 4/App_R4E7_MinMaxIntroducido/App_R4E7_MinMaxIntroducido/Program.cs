@@ -17,7 +17,8 @@ namespace App_R4E7_MinMaxIntroducido
             double min=0;
             string auxiliar;
             double numero;
-            
+            double primerMaxMin=0;
+            int contador = 0;
             //INTRODUCCIÓN
             Console.WriteLine("Introduce números y te mostraré el número más grande y más pequeño introducido");
             do  //HACER MIENTRAS NÚMERO SEA DISTINTO DE 0
@@ -31,12 +32,26 @@ namespace App_R4E7_MinMaxIntroducido
                     auxiliar = Console.ReadLine();
                 }
 
-                if (numero!=0) //SI NÚMERO ES DISTINTO DE CERO, COMPARAR PARA ASIGNAR A MAX O MIN
+                if (numero != 0) //SI NÚMERO ES DISTINTO DE CERO, COMPARAR PARA ASIGNAR A MAX O MIN
                 {
-                    if (numero<min)
-                        min = numero;
-                    if (numero>max)
-                        max = numero;
+                    if (contador == 0)                              //AL INTRODUCIR EL PRIMER NÚMERO
+                        primerMaxMin = numero;
+
+                    if ((min == 0 || max == 0) && contador != 0)    //SI NO ES EL PRIMER NÚMERO Y SI EL MAX Y MIN SIGUEN SIENDO 0
+                    {
+                        if (numero < primerMaxMin)                  //SI NUMERO MENOR QUE EL PRIMER NÚMERO GUARDAR EN MÍNIMO
+                            min = numero;
+                        if (numero > primerMaxMin)                  //SI NUMERO MAYOR QUE EL PRIMER NÚMERO GUARDAR EN MÁXIMO
+                            max = numero;
+                    }
+                    else                                            //SI NÚMERO MIN Y MAX HA CAMBIADO Y NO ES EL PRIMER NÚMERO INTRODUCIDO
+                    {
+                        if (numero < min)                           //SI NUMERO MENOR QUE EL MIN GUARDAR EN MÍNIMO
+                            min = numero;
+                        else if (numero > max)                      //SI NUMERO MAYOR QUE EL MAX GUARDAR EN MÁXIMO
+                            max = numero;
+                    }
+                    contador++;                                     //AUMENTAR EL CONTADOR DE NÚMEROS INTRODUCIDOS
                 }
             } while (numero!=0);
             

@@ -70,7 +70,11 @@ namespace App_R4E21_Menu
                         Console.ReadLine();
                         break;
                     default:                                                        //EN CASO DE PULSAR CUALQUIER OTRA TECLA
+                        int posIzq = Console.CursorLeft;
+                        int posAlto = Console.CursorTop;
+                        Console.CursorTop += 4;
                         Console.WriteLine("Por favor, opciones entre 1 y 4, 0 para salir. ");
+                        Console.SetCursorPosition(posIzq, posAlto);
                         Console.ReadLine();
                         break;
                 }

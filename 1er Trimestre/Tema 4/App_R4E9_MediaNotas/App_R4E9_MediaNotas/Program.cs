@@ -24,7 +24,7 @@ namespace App_R4E9_MediaNotas
                 //LEER DATOS
                 Console.Write("Introduce una nota: ");
                 auxiliar = Console.ReadLine();
-                while (!double.TryParse(auxiliar, out notaLeida)||notaLeida<0)
+                while (!double.TryParse(auxiliar, out notaLeida)||notaLeida<0||notaLeida>10)
                 {
                     Console.Write("Introduce una nota válida: ");
                     auxiliar = Console.ReadLine();

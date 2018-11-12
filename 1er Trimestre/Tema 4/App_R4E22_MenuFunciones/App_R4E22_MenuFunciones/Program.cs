@@ -191,6 +191,8 @@ namespace App_R4E22_MenuFunciones
                         double min = 0;
                         string aux2;
                         double numero;
+                        double primerMaxMin = 0;
+                        int contador2 = 0;
 
                         //INTRODUCCIÓN
                         Console.WriteLine("Introduce números y te mostraré el número más grande y más pequeño introducido");
@@ -207,12 +209,26 @@ namespace App_R4E22_MenuFunciones
 
                             if (numero != 0) //SI NÚMERO ES DISTINTO DE CERO, COMPARAR PARA ASIGNAR A MAX O MIN
                             {
-                                if (numero < min)
-                                    min = numero;
-                                if (numero > max)
-                                    max = numero;
+                                if (contador2 == 0)                              //AL INTRODUCIR EL PRIMER NÚMERO
+                                    primerMaxMin = numero;
+                                
+                                if ((min == 0 || max == 0) && contador2 != 0)    //SI NO ES EL PRIMER NÚMERO Y SI EL MAX Y MIN SIGUEN SIENDO 0
+                                {
+                                    if (numero < primerMaxMin)                  //SI NUMERO MENOR QUE EL PRIMER NÚMERO GUARDAR EN MÍNIMO
+                                        min = numero;
+                                    if (numero > primerMaxMin)                  //SI NUMERO MAYOR QUE EL PRIMER NÚMERO GUARDAR EN MÁXIMO
+                                        max = numero;
+                                }
+                                else                                            //SI NÚMERO MIN Y MAX HA CAMBIADO Y NO ES EL PRIMER NÚMERO INTRODUCIDO
+                                {
+                                    if (numero < min)                           //SI NUMERO MENOR QUE EL MIN GUARDAR EN MÍNIMO
+                                        min = numero;
+                                    else if (numero > max)                      //SI NUMERO MAYOR QUE EL MAX GUARDAR EN MÁXIMO
+                                        max = numero;
+                                }
+                                contador2++;                                     //AUMENTAR EL CONTADOR DE NÚMEROS INTRODUCIDOS
                             }
-                        } while (numero != 0);
+                        } while (numero != 0);                                  
 
                         //RESULTADOS
                         if (min == 0 && max == 0)
@@ -661,12 +677,18 @@ namespace App_R4E22_MenuFunciones
                             ladoString = Console.ReadLine();
                         }
                         Console.CursorLeft += 1;
-                        Console.WriteLine("El área de un cuadrado es: " + ladoCuadrado * ladoCuadrado);
-                        Console.CursorLeft += 2;
-                        Console.CursorTop += 2;
-                        Console.WriteLine("Pulse cualquier tecla para volver al menú principal");
-                        Console.CursorVisible = false;
-                        while (!Console.KeyAvailable) { }
+                        try
+                        {
+                            Console.WriteLine("El área de un cuadrado es: " + ladoCuadrado * ladoCuadrado);
+                            Console.CursorLeft += 2;
+                            Console.CursorTop += 2;
+                            Console.WriteLine("Pulse cualquier tecla para volver al menú principal");
+                            Console.CursorVisible = false;
+                            Console.ReadLine();
+                        }catch(Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                         break;
                     #endregion
                     #region Area Rectángulo
@@ -698,11 +720,19 @@ namespace App_R4E22_MenuFunciones
                             ladoBString = Console.ReadLine();
                         }
                         Console.CursorLeft += 1;
-                        Console.WriteLine("El área de un rectangulo es: " + ladoB * ladoA);
-                        Console.CursorLeft += 2;
-                        Console.CursorTop += 2;
-                        Console.WriteLine("Pulse cualquier tecla para volver al menú principal");
-                        Console.CursorVisible = false;
+                        try
+                        {
+                            Console.WriteLine("El área de un rectangulo es: " + ladoB * ladoA);
+                            Console.CursorLeft += 2;
+                            Console.CursorTop += 2;
+                            Console.WriteLine("Pulse cualquier tecla para volver al menú principal");
+                            Console.ReadLine();
+                            Console.CursorVisible = false;
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        }
                         break;
                     #endregion
                     #region Area Triángulo
@@ -736,6 +766,7 @@ namespace App_R4E22_MenuFunciones
                         Console.CursorLeft += 2;
                         Console.CursorTop += 2;
                         Console.WriteLine("Pulse cualquier tecla para volver al menú principal");
+                        Console.ReadLine();
                         Console.CursorVisible = false;
                         break;
                     #endregion
@@ -1324,7 +1355,7 @@ namespace App_R4E22_MenuFunciones
         {
             try
             {
-                if (exponente<0||exponente>5000)
+                if (exponente<0||exponente>500||numero8>9000)
                 {
                     throw new StackOverflowException();
                 }
