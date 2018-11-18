@@ -1,15 +1,10 @@
 ﻿/*-------------------------------------------------------------------------------------------------------------
- *  Programa:		
- *  Autor:		
- *  Versión:		
- *  Descripción:	
+ *  Programa:		ConjuntoVariables
+ *  Autor:		    Francisco J. Gómez Florido
+ *  Versión:		v 1.0 nov 2018
+ *  Descripción:	Programa que muestra los tipos de datos, su tamaño y rango de valores, además lee arrays rellenos aleatoriamente y los valores de una enumeración
 -------------------------------------------------------------------------------------------------------------*/
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace App_R5E1_ConjuntoVariables
 {
