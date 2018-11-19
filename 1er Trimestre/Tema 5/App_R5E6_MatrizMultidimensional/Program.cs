@@ -15,20 +15,23 @@ namespace App_R5E6_MatrizMultidimensional
             Random rnd = new Random();
             int[,] matrizBidimensional = new int[20, 20];
             int[,] matrizCopia = new int[20, 20];
+
             Console.WriteLine("INICIALIZA MATRÍZ CON CEROS");
             InicializaCeroMatrizBidimensional(matrizBidimensional);
             MuestraMatrizBidimensional(matrizBidimensional);
+
             Console.WriteLine("\nINICIALIZA MATRÍZ ALEATORIAMENTE");
             InicializaAleaMatrizBidimensional(matrizBidimensional,rnd,1000);
             MuestraMatrizBidimensional(matrizBidimensional);
-            CopiaMatrizBidimensional(matrizBidimensional, matrizCopia);
+
             Console.WriteLine("\nCOPIA MATRÍZ EN OTRA Y MODIFICA MATRIZ CON OTROS NÚMEROS ALEATORIOS");
+            CopiaMatrizBidimensional(matrizBidimensional, matrizCopia);
             InicializaAleaMatrizBidimensional(matrizBidimensional, rnd, 1000);
             MuestraMatrizBidimensional(matrizBidimensional);
+
             Console.WriteLine("\nMUESTRA LA MATRÍZ COPIADA ANTES DE SER EDITADA");
             MuestraMatrizBidimensional(matrizCopia);
             Console.ReadLine();
-
         }
         public static void InicializaCeroMatrizBidimensional(int[,] matriz)
         {
