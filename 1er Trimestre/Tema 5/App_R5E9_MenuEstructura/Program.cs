@@ -98,194 +98,200 @@ namespace App_R5E9_MenuEstructura
     {
         static void Main(string[] args)
         {
-            //GENERAMOS SEMILLA
-            Random rnd = new Random();            
-            Empleado[] empleados = new Empleado[10];            //CREAMOS ARRAY
-            ConsoleKeyInfo teclaLeida = new ConsoleKeyInfo();   //TECLA INTRODUCIDA POR EL USUARIO QUE SE OBTENDRÁ EL CARACTER INTRODUCIDO
-            int opcionInt;                                      //OPCIÓN INTRODUCIDA POR EL USUARIO DE TIPO INT QUE COMPRUEBA QUE SEA UN NÚMERO LO QUE INTRODUCE
-            bool noSalir = true;                                //BOLEANO QUE EVITA QUE SALGA DEL MENÚ
-            string elegidaString = teclaLeida.KeyChar.ToString();       //SE TRANSFORMA A STRING PORQUE NO EXISTE SOBRECARGA PARA TIPO CHAR PARA MÉTODO TRYPARSE            
-            string auxiliar;
-            
-            //MENU
-            do                                                  //HACER MIENTRA EL BOOLEANO NO SALIR SEA TRUE (SE VUELVE FALSE SI SE PULSA 0)
+            try
             {
-                LimpiaYPintaMenuPrincipal();                    //MÉTODO QUE LIMPIA LA CONSOLA Y PINTA EL MENÚ PRINCIPAL PARA DICHO PROGRAMA
-                int posicionTop = Console.CursorTop;            //GUARDAMOS LA POSICIÓN TOP DE ESCRITURA;
-                int posicionLeft = Console.CursorLeft;          //GUARDAMOS LA POSICIÓN LEFT DE ESCRITURA;
-                //LEER OPCION
-                teclaLeida = Console.ReadKey();                  //INTRODUCIDO POR EL USUARIO
+                //GENERAMOS SEMILLA
+                Random rnd = new Random();
+                Empleado[] empleados = new Empleado[10];            //CREAMOS ARRAY
+                ConsoleKeyInfo teclaLeida = new ConsoleKeyInfo();   //TECLA INTRODUCIDA POR EL USUARIO QUE SE OBTENDRÁ EL CARACTER INTRODUCIDO
+                int opcionInt;                                      //OPCIÓN INTRODUCIDA POR EL USUARIO DE TIPO INT QUE COMPRUEBA QUE SEA UN NÚMERO LO QUE INTRODUCE
+                bool noSalir = true;                                //BOLEANO QUE EVITA QUE SALGA DEL MENÚ
+                string elegidaString = teclaLeida.KeyChar.ToString();       //SE TRANSFORMA A STRING PORQUE NO EXISTE SOBRECARGA PARA TIPO CHAR PARA MÉTODO TRYPARSE            
+                string auxiliar;
 
-                //MIENTRAS NO PUEDA TRANSFORMARLO A INT PIDE EL NÚMERO Y BORRA EL CAMPO ESCRITO
-                while (!int.TryParse(elegidaString, out opcionInt))
+                //MENU
+                do                                                  //HACER MIENTRA EL BOOLEANO NO SALIR SEA TRUE (SE VUELVE FALSE SI SE PULSA 0)
                 {
-                    Console.SetCursorPosition(posicionLeft, posicionTop);   //POSICIONA PARA BORRAR EL CAMPO INTRODUCIDO PORQUE NO PUEDE TRANSFORMA A STRING
-                    Console.Write(" ");                                     //BORRA EL CAMPO INTRODUCIDO
-                    Console.SetCursorPosition(posicionLeft, posicionTop);   //POSICIONA PARA LEER
-                    teclaLeida = Console.ReadKey();                         //LEE DATO DEL USUARIO
-                    elegidaString = teclaLeida.KeyChar.ToString();          //GUARDA COMO STRING PARA COMPROBAR SI SE PUEDE TRANSFORMA A INT
-                }
-                //OPCIÓN ELEGIDA
-                switch (teclaLeida.KeyChar)     //SEGÚN LA TECLA PULSADA
-                {
-                    #region OPCION 0 - SALIR
-                    case '0':                                               //OPCION PARA SALIR
-                        noSalir = false;                                    //PONE A FALSE EL BOOLEANO QUE MANTIENE EL BUCLE DEL MENÚ
-                        Console.SetCursorPosition(Console.CursorLeft - 16, Console.CursorTop + 3);
-                        Console.Write("Saliendo");
-                        Thread.Sleep(400);
-                        Console.Write(".");
-                        Thread.Sleep(400);
-                        Console.Write(".");
-                        Thread.Sleep(400);
-                        Console.Write(".");
-                        break;
-                    #endregion
-                    #region OPCIÓN 1 - AÑADIR 
-                    case '1':
-                        empleados = AddEmpleado(empleados, true);
-                        Console.WriteLine("EMPLEADO AÑADIDO CON ÉXISTO, PULSE ENTER PARA VOLVER AL MENÚ PRINCIPAL...");
-                        Console.ReadLine();
-                        break;
-                    #endregion
-                    #region OPCION 2 - BUSCAR
-                    case '2':
-                        Console.Clear();
-                        Console.WriteLine("Introduce el nombre, apellidos, edad, sueldo o fecha de contrato del empleado a buscar");
-                        Console.Write("Parámetro: ");
-                        string parametroBusqueda = Console.ReadLine();
-                        int rellenoHasta = EmpleadosLength(empleados);
-                        Empleado[] busqueda = new Empleado[rellenoHasta];
-                        busqueda = BuscarEmpleado(empleados, parametroBusqueda);
-                        Console.WriteLine(ListaString(busqueda));
-                        Console.WriteLine("PULSE ENTER PARA VOLVER AL MENÚ PRINCIPAL...");
-                        Console.ReadLine();
-                        break;
-                    #endregion
-                    #region SUBMENÚ OPCION 3 - EDITAR
-                    case '3': //MISMA ESTRUCTURA QUE EL MENÚ PARA SUBMENÚ QUE PERMITA ELEGIR QUE PARTE DEL EMPLEADO EDITAR
-                        Console.WriteLine(ListaString(empleados, true));
-                        Console.Write("Introduce el nº del empleado a editar (0 para salir): ");
-                        int numeroEmpleado;
-                        string auxiliar2 = Console.ReadLine();
-                        while (!int.TryParse(auxiliar2, out numeroEmpleado))
-                        {
-                            Console.Write("Introduce un número de empleado válido: ");
-                            auxiliar = Console.ReadLine();
-                        }
-                        if (numeroEmpleado != 0)
-                        {
-                            numeroEmpleado--;
-                            bool noSalir2 = true;
-                            string elegidaString2 = "";
-                            ConsoleKeyInfo teclaLeida2 = new ConsoleKeyInfo();
-                            int opionInt2;
-                            do                                                  //HACER MIENTRA EL BOOLEANO NO SALIR SEA TRUE (SE VUELVE FALSE SI SE PULSA 0)
+                    LimpiaYPintaMenuPrincipal();                    //MÉTODO QUE LIMPIA LA CONSOLA Y PINTA EL MENÚ PRINCIPAL PARA DICHO PROGRAMA
+                    int posicionTop = Console.CursorTop;            //GUARDAMOS LA POSICIÓN TOP DE ESCRITURA;
+                    int posicionLeft = Console.CursorLeft;          //GUARDAMOS LA POSICIÓN LEFT DE ESCRITURA;
+                                                                    //LEER OPCION
+                    teclaLeida = Console.ReadKey();                  //INTRODUCIDO POR EL USUARIO
+
+                    //MIENTRAS NO PUEDA TRANSFORMARLO A INT PIDE EL NÚMERO Y BORRA EL CAMPO ESCRITO
+                    while (!int.TryParse(elegidaString, out opcionInt))
+                    {
+                        Console.SetCursorPosition(posicionLeft, posicionTop);   //POSICIONA PARA BORRAR EL CAMPO INTRODUCIDO PORQUE NO PUEDE TRANSFORMA A STRING
+                        Console.Write(" ");                                     //BORRA EL CAMPO INTRODUCIDO
+                        Console.SetCursorPosition(posicionLeft, posicionTop);   //POSICIONA PARA LEER
+                        teclaLeida = Console.ReadKey();                         //LEE DATO DEL USUARIO
+                        elegidaString = teclaLeida.KeyChar.ToString();          //GUARDA COMO STRING PARA COMPROBAR SI SE PUEDE TRANSFORMA A INT
+                    }
+                    //OPCIÓN ELEGIDA
+                    switch (teclaLeida.KeyChar)     //SEGÚN LA TECLA PULSADA
+                    {
+                        #region OPCION 0 - SALIR
+                        case '0':                                               //OPCION PARA SALIR
+                            noSalir = false;                                    //PONE A FALSE EL BOOLEANO QUE MANTIENE EL BUCLE DEL MENÚ
+                            Console.SetCursorPosition(Console.CursorLeft - 16, Console.CursorTop + 3);
+                            Console.Write("Saliendo");
+                            Thread.Sleep(400);
+                            Console.Write(".");
+                            Thread.Sleep(400);
+                            Console.Write(".");
+                            Thread.Sleep(400);
+                            Console.Write(".");
+                            break;
+                        #endregion
+                        #region OPCIÓN 1 - AÑADIR 
+                        case '1':
+                            empleados = AddEmpleado(empleados, true);
+                            Console.WriteLine("EMPLEADO AÑADIDO CON ÉXISTO, PULSE ENTER PARA VOLVER AL MENÚ PRINCIPAL...");
+                            Console.ReadLine();
+                            break;
+                        #endregion
+                        #region OPCION 2 - BUSCAR
+                        case '2':
+                            Console.Clear();
+                            Console.WriteLine("Introduce el nombre, apellidos, edad, sueldo o fecha de contrato del empleado a buscar");
+                            Console.Write("Parámetro: ");
+                            string parametroBusqueda = Console.ReadLine();
+                            int rellenoHasta = EmpleadosLength(empleados);
+                            Empleado[] busqueda = new Empleado[rellenoHasta];
+                            busqueda = BuscarEmpleado(empleados, parametroBusqueda);
+                            Console.WriteLine(ListaString(busqueda));
+                            Console.WriteLine("PULSE ENTER PARA VOLVER AL MENÚ PRINCIPAL...");
+                            Console.ReadLine();
+                            break;
+                        #endregion
+                        #region SUBMENÚ OPCION 3 - EDITAR
+                        case '3': //MISMA ESTRUCTURA QUE EL MENÚ PARA SUBMENÚ QUE PERMITA ELEGIR QUE PARTE DEL EMPLEADO EDITAR
+                            Console.WriteLine(ListaString(empleados, true));
+                            Console.Write("Introduce el nº del empleado a editar (0 para salir): ");
+                            int numeroEmpleado;
+                            string auxiliar2 = Console.ReadLine();
+                            while (!int.TryParse(auxiliar2, out numeroEmpleado))
                             {
-                                LimpiaYPintaMenuPrincipal2();                    //MÉTODO QUE LIMPIA LA CONSOLA Y PINTA EL MENÚ PRINCIPAL PARA DICHO PROGRAMA
-                                int posicionTop2 = Console.CursorTop;           //GUARDAMOS LA POSICIÓN TOP DE ESCRITURA;
-                                int posicionLeft2 = Console.CursorLeft;         //GUARDAMOS LA POSICIÓN LEFT DE ESCRITURA;
-                                                                                //LEER OPCION
-                                teclaLeida2 = Console.ReadKey();                //INTRODUCIDO POR EL USUARIO
-
-                                //MIENTRAS NO PUEDA TRANSFORMARLO A INT PIDE EL NÚMERO Y BORRA EL CAMPO ESCRITO
-                                while (!int.TryParse(elegidaString2, out opionInt2))
+                                Console.Write("Introduce un número de empleado válido: ");
+                                auxiliar = Console.ReadLine();
+                            }
+                            if (numeroEmpleado != 0)
+                            {
+                                numeroEmpleado--;
+                                bool noSalir2 = true;
+                                string elegidaString2 = "";
+                                ConsoleKeyInfo teclaLeida2 = new ConsoleKeyInfo();
+                                int opionInt2;
+                                do                                                  //HACER MIENTRA EL BOOLEANO NO SALIR SEA TRUE (SE VUELVE FALSE SI SE PULSA 0)
                                 {
-                                    Console.SetCursorPosition(posicionLeft, posicionTop2);  //POSICIONA PARA BORRAR EL CAMPO INTRODUCIDO PORQUE NO PUEDE TRANSFORMA A STRING
-                                    Console.Write(" ");                                     //BORRA EL CAMPO INTRODUCIDO
-                                    Console.SetCursorPosition(posicionLeft, posicionTop2);  //POSICIONA PARA LEER
-                                    teclaLeida2 = Console.ReadKey();                        //LEE DATO DEL USUARIO
-                                    elegidaString2 = teclaLeida2.KeyChar.ToString();        //GUARDA COMO STRING PARA COMPROBAR SI SE PUEDE TRANSFORMA A INT
-                                }
-                                //OPCIÓN ELEGIDA
-                                switch (teclaLeida2.KeyChar)     //SEGÚN LA TECLA PULSADA
-                                {
-                                    case '0':                                               //OPCION PARA SALIR
-                                        noSalir2 = false;                                    //PONE A FALSE EL BOOLEANO QUE MANTIENE EL BUCLE DEL MENÚ
-                                        Console.SetCursorPosition(Console.CursorLeft - 16, Console.CursorTop + 3);
-                                        Console.Write("Saliendo");
-                                        Thread.Sleep(400);
-                                        Console.Write(".");
-                                        Thread.Sleep(400);
-                                        Console.Write(".");
-                                        Thread.Sleep(400);
-                                        Console.Write(".");
-                                        break;
+                                    LimpiaYPintaMenuPrincipal2();                    //MÉTODO QUE LIMPIA LA CONSOLA Y PINTA EL MENÚ PRINCIPAL PARA DICHO PROGRAMA
+                                    int posicionTop2 = Console.CursorTop;           //GUARDAMOS LA POSICIÓN TOP DE ESCRITURA;
+                                    int posicionLeft2 = Console.CursorLeft;         //GUARDAMOS LA POSICIÓN LEFT DE ESCRITURA;
+                                                                                    //LEER OPCION
+                                    teclaLeida2 = Console.ReadKey();                //INTRODUCIDO POR EL USUARIO
 
-                                    case '1':
-                                        Console.Clear();
-                                        Console.Write("Introduce el nombre nuevo del empleado: ");
-                                        string nombre = Console.ReadLine();
-                                        empleados[numeroEmpleado].Nombre = nombre;
-                                        break;
-                                    case '2':
-                                        Console.Clear();
-                                        Console.Write("Introduce los apellidos nuevos del empleado: ");
-                                        string apellidos = Console.ReadLine();
-                                        empleados[numeroEmpleado].Apellidos = apellidos;
-                                        break;
-                                    case '3':
-                                        Console.Clear();
-                                        Console.Write("Introduce la nueva edad del empleado: ");
-                                        string auxiliar3 = Console.ReadLine();
-                                        int edadEmpleado;
-                                        while (!int.TryParse(auxiliar3, out edadEmpleado))
-                                        {
-                                            Console.WriteLine("Introduce una edad válida: ");
-                                            auxiliar3 = Console.ReadLine();
-                                        }
-                                        empleados[numeroEmpleado].Edad = edadEmpleado;
-                                        break;
-                                    case '4':
-                                        Console.Clear();
-                                        Console.Write("Introduce el nuevo sueldo del empleado: ");
-                                        string auxiliar4 = Console.ReadLine();
-                                        double sueldoEmpleado;
-                                        while (!double.TryParse(auxiliar4, out sueldoEmpleado))
-                                        {
-                                            Console.WriteLine("Introduce una edad válida: ");
-                                            auxiliar4 = Console.ReadLine();
-                                        }
-                                        empleados[numeroEmpleado].Sueldo = sueldoEmpleado;
-                                        break;
-                                    case '5':
-                                        Console.Clear();
-                                        Console.Write("Introduce la nueva fecha de contratación del empleado: ");
-                                        string auxiliar5 = Console.ReadLine();
-                                        DateTime fechaContratacion;
-                                        while (!DateTime.TryParse(auxiliar5, out fechaContratacion))
-                                        {
-                                            Console.WriteLine("Introduce una edad válida: ");
-                                            auxiliar5 = Console.ReadLine();
-                                        }
-                                        empleados[numeroEmpleado].FechaContrato = fechaContratacion;
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            } while (noSalir2);                                                      //MIENTRAS NO SE PULSE 0 EN EL MENÚ NO CAMBIA LA VARIABLE noSalir DE TRUE A FALSE
-                        }
-                        break;
-                    #endregion
-                    #region OPCION 4 - LISTAR
-                    case '4':
-                        Console.WriteLine(ListaString(empleados, true));
-                        Console.WriteLine("PULSE ENTER PARA VOLVER AL MENÚ PRINCIPAL...");
-                        Console.ReadLine();
-                        break;
-                    #endregion
-                    #region OPCION 5 (EXTRA) - AÑADIR EMPLEADOS ALEATORIAMENTE
-                    case '5':
-                        Console.Clear();
-                        empleados = AddEmpleado(empleados, 30, rnd);
-                        Console.WriteLine("AÑADIDOS 30 EMPLEADOS ALEATORIAMENTE ENTER PARA VOLVER AL MENÚ PRINCIPAL");
-                        Console.ReadLine();
-                        break;
-                    #endregion
-                    default:
-                        break;
-                }
-            } while (noSalir);                                                      //MIENTRAS NO SE PULSE 0 EN EL MENÚ NO CAMBIA LA VARIABLE noSalir DE TRUE A FALSE
+                                    //MIENTRAS NO PUEDA TRANSFORMARLO A INT PIDE EL NÚMERO Y BORRA EL CAMPO ESCRITO
+                                    while (!int.TryParse(elegidaString2, out opionInt2))
+                                    {
+                                        Console.SetCursorPosition(posicionLeft, posicionTop2);  //POSICIONA PARA BORRAR EL CAMPO INTRODUCIDO PORQUE NO PUEDE TRANSFORMA A STRING
+                                        Console.Write(" ");                                     //BORRA EL CAMPO INTRODUCIDO
+                                        Console.SetCursorPosition(posicionLeft, posicionTop2);  //POSICIONA PARA LEER
+                                        teclaLeida2 = Console.ReadKey();                        //LEE DATO DEL USUARIO
+                                        elegidaString2 = teclaLeida2.KeyChar.ToString();        //GUARDA COMO STRING PARA COMPROBAR SI SE PUEDE TRANSFORMA A INT
+                                    }
+                                    //OPCIÓN ELEGIDA
+                                    switch (teclaLeida2.KeyChar)     //SEGÚN LA TECLA PULSADA
+                                    {
+                                        case '0':                                               //OPCION PARA SALIR
+                                            noSalir2 = false;                                    //PONE A FALSE EL BOOLEANO QUE MANTIENE EL BUCLE DEL MENÚ
+                                            Console.SetCursorPosition(Console.CursorLeft - 16, Console.CursorTop + 3);
+                                            Console.Write("Saliendo");
+                                            Thread.Sleep(400);
+                                            Console.Write(".");
+                                            Thread.Sleep(400);
+                                            Console.Write(".");
+                                            Thread.Sleep(400);
+                                            Console.Write(".");
+                                            break;
+
+                                        case '1':
+                                            Console.Clear();
+                                            Console.Write("Introduce el nombre nuevo del empleado: ");
+                                            string nombre = Console.ReadLine();
+                                            empleados[numeroEmpleado].Nombre = nombre;
+                                            break;
+                                        case '2':
+                                            Console.Clear();
+                                            Console.Write("Introduce los apellidos nuevos del empleado: ");
+                                            string apellidos = Console.ReadLine();
+                                            empleados[numeroEmpleado].Apellidos = apellidos;
+                                            break;
+                                        case '3':
+                                            Console.Clear();
+                                            Console.Write("Introduce la nueva edad del empleado: ");
+                                            string auxiliar3 = Console.ReadLine();
+                                            int edadEmpleado;
+                                            while (!int.TryParse(auxiliar3, out edadEmpleado))
+                                            {
+                                                Console.WriteLine("Introduce una edad válida: ");
+                                                auxiliar3 = Console.ReadLine();
+                                            }
+                                            empleados[numeroEmpleado].Edad = edadEmpleado;
+                                            break;
+                                        case '4':
+                                            Console.Clear();
+                                            Console.Write("Introduce el nuevo sueldo del empleado: ");
+                                            string auxiliar4 = Console.ReadLine();
+                                            double sueldoEmpleado;
+                                            while (!double.TryParse(auxiliar4, out sueldoEmpleado))
+                                            {
+                                                Console.WriteLine("Introduce una edad válida: ");
+                                                auxiliar4 = Console.ReadLine();
+                                            }
+                                            empleados[numeroEmpleado].Sueldo = sueldoEmpleado;
+                                            break;
+                                        case '5':
+                                            Console.Clear();
+                                            Console.Write("Introduce la nueva fecha de contratación del empleado: ");
+                                            string auxiliar5 = Console.ReadLine();
+                                            DateTime fechaContratacion;
+                                            while (!DateTime.TryParse(auxiliar5, out fechaContratacion))
+                                            {
+                                                Console.WriteLine("Introduce una edad válida: ");
+                                                auxiliar5 = Console.ReadLine();
+                                            }
+                                            empleados[numeroEmpleado].FechaContrato = fechaContratacion;
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                } while (noSalir2);                                                      //MIENTRAS NO SE PULSE 0 EN EL MENÚ NO CAMBIA LA VARIABLE noSalir DE TRUE A FALSE
+                            }
+                            break;
+                        #endregion
+                        #region OPCION 4 - LISTAR
+                        case '4':
+                            Console.WriteLine(ListaString(empleados, true));
+                            Console.WriteLine("PULSE ENTER PARA VOLVER AL MENÚ PRINCIPAL...");
+                            Console.ReadLine();
+                            break;
+                        #endregion
+                        #region OPCION 5 (EXTRA) - AÑADIR EMPLEADOS ALEATORIAMENTE
+                        case '5':
+                            Console.Clear();
+                            empleados = AddEmpleado(empleados, 30, rnd);
+                            Console.WriteLine("AÑADIDOS 30 EMPLEADOS ALEATORIAMENTE ENTER PARA VOLVER AL MENÚ PRINCIPAL");
+                            Console.ReadLine();
+                            break;
+                        #endregion
+                        default:
+                            break;
+                    }
+                } while (noSalir);                                                      //MIENTRAS NO SE PULSE 0 EN EL MENÚ NO CAMBIA LA VARIABLE noSalir DE TRUE A FALSE
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
         #region MÉTODOS
         #region PINTA MENU
