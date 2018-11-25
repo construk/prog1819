@@ -24,25 +24,34 @@ namespace App_R5E11_TiradasDados
             Random random = new Random();                   //SEMILLA PARA ALEATORIOS
             ConsoleKeyInfo tecla = new ConsoleKeyInfo();    //TECLA PULSADA
             Console.CursorVisible = false;                  //PONER INVISIBLE EL CURSOR
-            do
-            {
-                Console.Clear();                            //LIMPIAR CONSOLA
-                PintaResultado();                           //PINTAR LOS RESULTADOS
-                PintaOpciones();                            //PINTAR OPCIONES DEL MENU
-                tecla = Console.ReadKey(true);              //LEER LA TECLA (Y SIN QUE SE VEA)
-                switch (tecla.KeyChar)
+            
+                do
                 {
-                    case '1':                               //SI PULSAS 1 --> TIRAR EL DADO 1 VEZ
-                        TirarDado(random);
-                        break;
-                    case '2':                               //SI PULSAS 2 --> TE PREGUNTA CUANTAS VECES LO QUIERES TIRAR Y LO TIRAS
-                        TirarNVecesDado(IntroduceDato(), random);
-                        break;
-                    default:                                //SINO NO HACE NADA
-                        break;
+                try
+                {
+                    Console.Clear();                            //LIMPIAR CONSOLA
+                    PintaResultado();                           //PINTAR LOS RESULTADOS
+                    PintaOpciones();                            //PINTAR OPCIONES DEL MENU
+                    tecla = Console.ReadKey(true);              //LEER LA TECLA (Y SIN QUE SE VEA)
+                    switch (tecla.KeyChar)
+                    {
+                        case '1':                               //SI PULSAS 1 --> TIRAR EL DADO 1 VEZ
+                            TirarDado(random);
+                            break;
+                        case '2':                               //SI PULSAS 2 --> TE PREGUNTA CUANTAS VECES LO QUIERES TIRAR Y LO TIRAS
+                            TirarNVecesDado(IntroduceDato(), random);
+                            break;
+                        default:                                //SINO NO HACE NADA
+                            break;
+                    }
                 }
-            } while (tecla.KeyChar!='0');                   //MIENTRAS LA TECLA PULSADA NO SEA 0 NO SALES DEL PROGRAMA
-        }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                } while (tecla.KeyChar != '0');                   //MIENTRAS LA TECLA PULSADA NO SEA 0 NO SALES DEL PROGRAMA  
+            }
+        
         /// <summary>
         /// Método que sirve para preguntar el número de tiradas
         /// </summary>
