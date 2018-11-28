@@ -503,7 +503,7 @@ namespace App_R5E13_ElJuegoDeLaVida
                 } while (teclaPulsada.Key != ConsoleKey.Escape);            //MIENTRAS NO SE PULSE ESCAPE....
             }
             catch (Exception e)
-            { Console.WriteLine(e.Message); Console.ReadLine(); }           //SI EXCEPCIÓN MENSAJE Y ESPERA PARA VERLO
+            { Console.WriteLine(e.Message); Console.ReadLine(); }           //SI EXCEPCIÓN --> MENSAJE Y ESPERA PARA VERLO
         }
 
         /// <summary>
