@@ -1,7 +1,7 @@
 ﻿/*-------------------------------------------------------------------------------------------------------------
  *  Programa:		AlReves
  *  Autor:		Francisco J. Gómez Florido
- *  Versión:		v 1.0 nov 2018
+ *  Versión:		v 1.0 dic 2018
  *  Descripción:	Programa que utiliza la función AlReves, que recibe un texto y te lo devuelve del revés
 -------------------------------------------------------------------------------------------------------------*/
 using System;

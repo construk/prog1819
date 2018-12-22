@@ -1,7 +1,7 @@
 ﻿/*-------------------------------------------------------------------------------------------------------------
  *  Programa:		ISBN
  *  Autor:		Francisco J. Gómez Florido
- *  Versión:		v 1.0 nov 2018
+ *  Versión:		v 1.0 dic 2018
  *  Descripción:    Programa con dos funciones que comprueban si un código de isbn es válido. Una de ellas también almacena el valor del caracter de control.
 -------------------------------------------------------------------------------------------------------------*/
 using System;

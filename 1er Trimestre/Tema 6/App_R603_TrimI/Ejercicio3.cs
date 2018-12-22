@@ -1,7 +1,7 @@
 ﻿/*-------------------------------------------------------------------------------------------------------------
  *  Programa:		TrimI
  *  Autor:		Francisco J. Gómez Florido
- *  Versión:		v 1.0 nov 2018
+ *  Versión:		v 1.0 dic 2018
  *  Descripción:	Ejercicio que tiene una función que quita los espacios del principio de un string
 -------------------------------------------------------------------------------------------------------------*/
 using System;

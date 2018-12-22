@@ -1,7 +1,7 @@
 ﻿/*-------------------------------------------------------------------------------------------------------------
  *  Programa:		LetraDni
  *  Autor:		Francisco J. Gómez Florido
- *  Versión:		v 1.0 nov 2018
+ *  Versión:		v 1.0 dic 2018
  *  Descripción:	Ejercicio que tiene un método que te devuelve la letra del DNI y te lo muestra por pantalla
 -------------------------------------------------------------------------------------------------------------*/
 using System;
