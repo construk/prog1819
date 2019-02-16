@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>App_R701_MenuPrincipal</name>
+    </assembly>
+    <members>
+        <member name="T:App_R701_MenuPrincipal.Coordenada">
+            <summary>
+            Coordenada de consola, compuesta por dos puntos X e Y determinan una posición dentro de la Consola de comandos.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.Coordenada.X">
+            <summary>
+            X de la coordenada. Determina la posición horizontal de la coordenada. (min: 0, max: Console.LargestWindowWidth - 2)
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.Coordenada.Y">
+            <summary>
+            Y de la coordenada. Determina la posición vertical de la coordenada. (min: 0, max: Console.LargestWindowHeight - 2)
+            </summary>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.Coordenada.#ctor">
+            <summary>
+            Constructor vacio. Crea la coordenada en la posición (0,0).
+            </summary>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.Coordenada.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Crea la coordenada en la posición x e y que le indiques. X -> (min: 0, max: Console.LargestWindowWidth - 2), Y -> (min: 0, max: Console.LargestWindowHeight - 2).
+            </summary>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.Coordenada.Maximize">
+            <summary>
+            Método que permite maximizar la ventana de la consola para poder definir coordenadas en posiciones mayores.
+            </summary>
+        </member>
+        <member name="T:App_R701_MenuPrincipal.TipoMarco">
+            <summary>
+            Enumeración que sirve para determinar los tipos de marco que puede usar la clase <see cref="T:App_R701_MenuPrincipal.Marcos"/>.
+            </summary>
+        </member>
+        <member name="T:App_R701_MenuPrincipal.Marcos">
+            <summary>
+            Clase que sirve para crear y pintar un marco, con o sin cabecera, en la consola de comandos.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.Marcos.Vertice1">
+            <summary>
+            Vertice superior izquierdo del marco.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.Marcos.Vertice2">
+            <summary>
+            Vertice superior derecho del marco.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.Marcos.Vertice3">
+            <summary>
+            Vertice inferior derecho del marco.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.Marcos.Vertice4">
+            <summary>
+            Vertice inferior izquierdo del marco.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.Marcos.Alto">
+            <summary>
+            Alto del marco.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.Marcos.Ancho">
+            <summary>
+            Ancho del marco.
+            </summary>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.Marcos.#ctor(App_R701_MenuPrincipal.Coordenada,App_R701_MenuPrincipal.Coordenada,App_R701_MenuPrincipal.TipoMarco,System.ConsoleColor)">
+            <summary>
+            Construye un marco dado sus vertices superior izquierdo e inferior derecho, tipo de marco y un color determinado.
+            </summary>
+            <param name="vertice1">Coordenada de la posición superior izquierda</param>
+            <param name="vertice3">Coordenada de la posición superior izquierda</param>
+            <param name="tipo">Tipo de marco: Simple o Doble</param>
+            <param name="color">Color de consola que indica el color del marco</param>
+            <exception cref="T:System.ArgumentException">Se da cuando el Vertice3 no está posicionado debajo y a la derecha del Vertice1 o la cabecera no cumple con el formato adecuado.</exception>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.Marcos.Pinta(System.Boolean,System.Int32)">
+            <summary>
+            Sirve para pintar el marco con o sin cabecera.
+            </summary>
+            <param name="cabecera">True para pintar con cabecera. Si está activada la cabecera la Altura mínima del marco es 4.</param>
+            <param name="tamanoCabecera">Determina el tamaño del hueco de la cabecera. Valor mínimo 1. Solo sirve si cabecera está activada.</param>
+            <remarks>Si Alto-tamanoCabecera es menor que 4 provoca excepción</remarks>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.Marcos.RellenarCaracteresMarco(App_R701_MenuPrincipal.TipoMarco)">
+            <summary>
+            Sirve para rellenar caracteresMarco según el tipo de marco utilizado.
+            </summary>
+            <param name="tipoMarco">Enumeración: simple o doble.</param>
+            <returns>El array de string con el formato elegido.</returns>
+        </member>
+        <member name="T:App_R701_MenuPrincipal.EstiloTexto">
+            <summary>
+            Enumeración que sirve para definír la alineación del texto en el menú.
+            </summary>
+        </member>
+        <member name="T:App_R701_MenuPrincipal.MenuPrincipal">
+            <summary>
+            Clase que permite dibujar un menú de consola con distintos estilos de manera sencilla.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.MenuPrincipal.AltoUsadoCuerpoOpciones">
+            <summary>
+            Alto que ocupa el cuerpo de las opciones.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.MenuPrincipal.NumeroOpciones">
+            <summary>
+            Número de opciones del menú.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.MenuPrincipal.PaginasMenu">
+            <summary>
+            Número de páginas que contiene el menú dadas unas opciones y un límite según lo que permita la resolución de la pantalla.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.MenuPrincipal.PaginaMenu">
+            <summary>
+            Página actual en la que se encuentra el menú cuando se pinte.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.MenuPrincipal.AnchoEscribible">
+            <summary>
+            Ancho máximo que se puede escribir en consola.
+            </summary>
+        </member>
+        <member name="P:App_R701_MenuPrincipal.MenuPrincipal.AltoEscribible">
+            <summary>
+            Alto máximo que se puede escribir en consola.
+            </summary>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.MenuPrincipal.#ctor(System.String,System.String[],System.ConsoleColor,App_R701_MenuPrincipal.TipoMarco,App_R701_MenuPrincipal.EstiloTexto)">
+            <summary>
+            Construye un MenuPrincipal dado su título y sus opciones. También permite cambiar el tipo de marco, su color, y el estilo de alineación del texto.
+            </summary>
+            <param name="titulo">string con el título del menú</param>
+            <param name="opcionesMenu">string[] que contiene las opciones del menú.</param>
+            <param name="color">color de los bordes del menú.</param>
+            <param name="tipoMarco">Seleccionar si es simple o doble.</param>
+            <param name="estilo">Seleccionar: alineacionIzquieda (próximamente más estilos)</param>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.MenuPrincipal.Pintar">
+            <summary>
+            Pinta el menú dadas sus caracteristicas pasadas en el constructor. Incluye la pagina actual y las páginas del MenuPrincipal.
+            </summary>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.MenuPrincipal.Pintar(System.Boolean)">
+            <summary>
+            Pinta el menú dadas sus caracteristicas pasadas en el constructor. Puedes o no incluir las páginas del MenuPrincipal.
+            </summary>
+            <param name="pintarPaginas">True para pintar la página actual y el número de páginas que tiene el menú. False para no mostrarlas.</param>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.MenuPrincipal.PaginasString">
+            <summary>
+            Obtiene un string con la página actual y el total de páginas
+            </summary>
+            <returns>"NumeroPagina/NumeroPaginas"</returns>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.MenuPrincipal.Escribir(System.String)">
+            <summary>
+            Escribe un string para las opciones que lo limita al AnchoEscribible.
+            </summary>
+            <param name="opcion">Opción a formatear.</param>
+            <returns>String limitado al ancho escribible o el string tal cual si no supera el ancho.</returns>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.MenuPrincipal.FormatoTitulo(System.String,System.Int32@)">
+            <summary>
+            Devuelve el título para escribirlo antes de pintar el marco
+            </summary>
+            <param name="titulo">string del título a formatear.</param>
+            <param name="numeroFilas">Número de filas que serán el resultado del formateo del texto</param>
+            <returns>Título formateado.</returns>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.MenuPrincipal.PintarOpciones">
+            <summary>
+            Pinta las opciones del menú según en la página que te encuentres.
+            </summary>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.MenuPrincipal.MasLargoTitulo">
+            <summary>
+            Determina el mayor ancho del título en caso de que supere una línea.
+            </summary>
+            <returns>Devuelve un entero que representa el string más largo.</returns>
+        </member>
+        <member name="M:App_R701_MenuPrincipal.MenuPrincipal.ComprobarMayorAnchoTexto">
+            <summary>
+            Comprueba el mayor ancho tanto de título como de las opciones del menú.
+            </summary>
+            <returns>Devuelve un entero que representa el string más largo.</returns>
+        </member>
+    </members>
+</doc>
