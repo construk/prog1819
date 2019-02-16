@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace App_R705_ColeccionOrdenadaSinRepeticion
 {
+    /// <summary>
+    /// Clase Trabajadores permite la gestión de la clase Trabajador mediante una colección ordenada y sin repetición.
+    /// </summary>
     public class Trabajadores
     {
         #region CAMPOS

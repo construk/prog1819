@@ -12,14 +12,17 @@ namespace App_R707_CorrerCocheDeportista
     {
         static void Main(string[] args)
         {
-            Coche coche = new Coche();
-            Corredor corredor = new Corredor();
+            Coche coche = new Coche();              //Instancia de coche
+            Corredor corredor = new Corredor();     //Instancia de corredor
             
-            coche.Correr();
-            corredor.Correr();
+            coche.Correr();                         //Ejecutar correr de coche
+            corredor.Correr();                      //Ejecutar correr de corredor
             Console.ReadLine();
         }
     }
+    /// <summary>
+    /// Clase coche que implementa la interfaz ICarrera que obliga a codificar el método Correr()
+    /// </summary>
     class Coche : ICarrera
     {
         public void Correr()
@@ -27,6 +30,9 @@ namespace App_R707_CorrerCocheDeportista
             Console.WriteLine("El coche está en marcha.");
         }
     }
+    /// <summary>
+    /// Clase corredor que implementa la interfaz ICarrera que obliga a codificar el método Correr()
+    /// </summary>
     class Corredor : ICarrera
     {
         public void Correr()

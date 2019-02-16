@@ -2,6 +2,9 @@
 
 namespace App_R705_ColeccionOrdenadaSinRepeticion
 {
+    /// <summary>
+    /// Clase trabajador que contiene código, apellidos, nombre, fecha de nacimiento y sueldo.
+    /// </summary>
     public class Trabajador:IComparable<Trabajador>
     {
         #region Campos

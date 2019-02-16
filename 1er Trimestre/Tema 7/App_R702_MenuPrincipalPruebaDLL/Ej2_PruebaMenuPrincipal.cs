@@ -31,7 +31,7 @@ namespace App_R702_MenuPrincipalPruebaDLL
             string[] opciones = new string[nOpciones];
             for (int i = 0; i < nOpciones; i++)
             {
-                opciones[i] = "Opción "+(i + 1).ToString();
+                opciones[i] = "Opción muy larga que tambien se ajusta al ancho del menú todo lo que haga falta para que queden todas las opciones en una línea y no haya problemas visuales. "+(i + 1).ToString();
             }
             return opciones;
         }

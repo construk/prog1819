@@ -361,23 +361,11 @@ namespace App_R704_MatematicasFran
             public override string Message
             { get { return mensajeExcepcion; } }
 
-            public NoNegativeException()
-            {
-                ConsoleColor colorTexto = new ConsoleColor();
-                Console.ForegroundColor = colorTexto;
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(Message);
-                Console.ForegroundColor = colorTexto;
-            }
+            public NoNegativeException():base()
+            { }
 
             public NoNegativeException(string message) : base(message)
-            {
-                ConsoleColor colorTexto = new ConsoleColor();
-                Console.ForegroundColor = colorTexto;
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(message);
-                Console.ForegroundColor = colorTexto;
-            }
+            { }
         }
         #endregion
     }
