@@ -1,0 +1,9 @@
+﻿<Application
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Wpf_R910_Calculadora"
+             xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Wpf_R910_Calculadora.App"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+    </Application.Resources>
+</Application>

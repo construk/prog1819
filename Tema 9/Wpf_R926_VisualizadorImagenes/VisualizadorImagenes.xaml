@@ -1,0 +1,23 @@
+﻿<Window x:Class="Wpf_R926_VisualizadorImagenes.VisualizadorImagenes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_R926_VisualizadorImagenes"
+        mc:Ignorable="d"
+        Title="Visualizador de imagenes" Height="450" Width="800"
+        >
+    <ScrollViewer HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
+        <ScrollViewer.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Cambiar carpeta" Name="CambiarCarpetaOpc" Click="CambiarCarpetaOpc_Click">
+                    <MenuItem.Icon>
+                        <Image Source="folder.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </ContextMenu>
+        </ScrollViewer.ContextMenu>
+        <WrapPanel Name="panelVisualizacion" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseDown="Evt_MouseDown_Imagen" PreviewMouseDown="Evt_PrevMouseDown_Imagen">
+        </WrapPanel>
+    </ScrollViewer>
+</Window>

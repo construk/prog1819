@@ -1,0 +1,4 @@
+ Nombre de usuario: ACER-CONS\marra Fecha de conexión: 18/03/2019 Hora de conexión:  21:15 Conexión en milisegundos: 19,0035
+ Nombre de usuario: ACER-CONS\marra Fecha de conexión: 18/03/2019 Hora de conexión:  21:15 Conexión en milisegundos: 15,9515
+ Nombre de usuario: DESKTOP-OFCGH4V\marra Fecha de conexión: 28/09/2020 Hora de conexión:  9:47 Conexión en milisegundos: 9,5686
+ Nombre de usuario: DESKTOP-OFCGH4V\marra Fecha de conexión: 28/09/2020 Hora de conexión:  9:47 Conexión en milisegundos: 7,7996

@@ -1,0 +1,33 @@
+﻿<Window x:Class="Wpf_R912_MezclaColor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_R912_MezclaColor"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        Title="Mezcla de colores RGB" Height="450" Width="800">
+    <Grid>
+        <Rectangle Name="Rec_Relleno" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top" Width="672" Margin="40" Fill="Black"/>
+        <StackPanel Margin="0,269,0,63">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Label Width="55" Foreground="#FFFF0303">Rojo</Label>
+                <Slider Name="sl_rojo" Minimum="0" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="560" ValueChanged="Sl_rojo_ValueChanged" SmallChange="1"/>
+                <Label>Valor:</Label>
+                <Label xml:space="preserve" Name="lbl_rojo" Content="  0"></Label>
+            </StackPanel>
+            <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal">
+                <Label Width="55" Content="Verde" Foreground="Lime"/>
+                <Slider Name="sl_verde" Minimum="0" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25"  Width="560" ValueChanged="Sl_verde_ValueChanged"/>
+                <Label>Valor:</Label>
+                <Label xml:space="preserve" Content="  0" Name="lbl_verde"></Label>
+            </StackPanel>
+            <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal">
+                <Label Width="55" Content="Azul" Foreground="Blue"/>
+                <Slider Name="sl_azul" Minimum="0" Maximum="255" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25"  Width="560" ValueChanged="Sl_azul_ValueChanged"/>
+                <Label>Valor:</Label>
+                <Label xml:space="preserve" Content="  0" Name="lbl_azul"></Label>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

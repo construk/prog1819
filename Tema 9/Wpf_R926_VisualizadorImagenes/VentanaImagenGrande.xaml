@@ -1,0 +1,22 @@
+﻿<Window x:Class="Wpf_R926_VisualizadorImagenes.VentanaImagenGrande"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_R926_VisualizadorImagenes"
+        mc:Ignorable="d"
+        Title="VentanaImagenGrande" Height="450" Width="800"
+        KeyDown="KeyDown_IzqDer"
+        WindowState="Maximized"
+        WindowStyle="ToolWindow"
+        >
+    
+    <Grid MouseMove="MouseMove_VisualizarCambiarImagen">
+        <Button Name="btnHaciaAtras" Click="Click_DelanteAtras" BorderThickness="0" Width="40" Background="#00222222" Foreground="#00000000" HorizontalAlignment="Left" FontSize="40" Content="&lt;" VerticalContentAlignment="Center"/>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <MediaElement Name="imagenMostrada" Stretch="None"></MediaElement>
+        </WrapPanel>
+        <Button Name="btnHaciaDelante" Click="Click_DelanteAtras" BorderThickness="0" Width="40" Background="#00222222" Foreground="#00000000" HorizontalAlignment="Right" FontSize="40" Content="&gt;" VerticalContentAlignment="Center"/>
+
+    </Grid>
+</Window>

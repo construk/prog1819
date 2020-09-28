@@ -1,0 +1,55 @@
+﻿<Window x:Class="Wpf_R909_TiradaDados.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="WPF - Ejercicio 9 - Tiradas de dados" Height="302.667" Width="718.666" Background="#FFF6F6F6"
+        MinHeight="302" MinWidth="718"
+        >
+    <Grid>
+        
+        <StackPanel HorizontalAlignment="Left" Height="231" Margin="38,30,0,0" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" Height="128">
+                <GroupBox Header="Dado" HorizontalAlignment="Left" Height="121" VerticalAlignment="Top" Width="142">
+                    <Image Height="60" x:Name="img_dado" Source="./Imagenes/0.png"/>
+                </GroupBox>
+                <StackPanel Width="121">
+                    <Button Margin="20" x:Name="btn_Tirar" Content="Tirar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="Btn_Tirar_Click"/>
+                    <CheckBox Name="check_Simular" Margin="20,0" Content="Simular" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="47">
+                <Button Name="btn_auto" IsEnabled="False" Height="23" Margin="5,0,0,0" Content="Automático" VerticalAlignment="Center" Width="75" Click="Btn_auto_Click"/>
+                <Label Height="23" Margin="30,0,0,0" Content="Nº de tiradas" VerticalAlignment="Center"/>
+                <TextBox Name="txb_nTiradas" Height="23" Margin="2,0,0,0" VerticalAlignment="Center" TextWrapping="Wrap" Width="75" TextChanged="Txb_nTiradas_TextChanged"/>
+            </StackPanel>
+            <Grid Height="50">
+                <ProgressBar Name="barraProgreso" Minimum="0" Maximum="100" HorizontalAlignment="Center" Height="15" Width="330" />
+            </Grid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="222" Margin="411,30,0,0" VerticalAlignment="Top">
+            <StackPanel Name="stcResultados" Width="123">
+                <TextBlock TextWrapping="Wrap" Text="Resultados"/>
+
+                <ListView Name="list_Resultados" Margin="0,5,10,0" Height="192"/>
+
+
+            </StackPanel>
+
+            <StackPanel Width="141" Margin="20,0,0,0">
+                <TextBlock TextWrapping="Wrap" Text="Estadística"/>
+                <ListView Margin="0,5,10,0" Height="134">
+                    <ListViewItem Name="item1" Content="1 -> 0 -> 0%"/>
+                    <ListViewItem Name="item2" Content="2 -> 0 -> 0%"/>
+                    <ListViewItem Name="item3" Content="3 -> 0 -> 0%"/>
+                    <ListViewItem Name="item4" Content="4 -> 0 -> 0%"/>
+                    <ListViewItem Name="item5" Content="5 -> 0 -> 0%"/>
+                    <ListViewItem Name="item6" Content="6 -> 0 -> 0%"/>
+                </ListView>
+                <GroupBox Name="gr_TotalTiradas" Margin="0,10,10,0" Padding="10,10,0,0" Header="Total Tiradas" Content="0"/>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

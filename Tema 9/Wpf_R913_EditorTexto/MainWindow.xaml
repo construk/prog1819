@@ -1,0 +1,57 @@
+﻿<Window x:Name="window" x:Class="Wpf_R913_EditorTexto.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_R913_EditorTexto"
+        mc:Ignorable="d"
+        Title="Wpf - Ejercicio 13 - Editor de textos enriquecido" Height="400" Width="800"
+        SizeChanged="Window_SizeChanged">
+    <Window.Resources>
+        <local:AjustarTamanoVentana x:Key="AjustarTamanoVentana"/>
+    </Window.Resources>
+    <DockPanel>
+        <ToolBarTray VerticalAlignment="Top" DockPanel.Dock="Top" Margin="0,0,0,0"  Height="28">
+            <ToolBar Background="White" Band="1" BandIndex="1">
+                <Button Name="btnCortar" Click="BtnCortar_Click">
+                    <Image Source="Toolbar/cut.png" Height="20" />
+                </Button>
+                <Button Name="btnCopiar" VerticalAlignment="Top" Click="BtnCopiar_Click">
+                    <Image Source="Toolbar/copy.png" Height="20" />
+                </Button>
+                <Button Name="btnPegar" VerticalAlignment="Stretch" Click="BtnPegar_Click">
+                    <Image Source="Toolbar/paste.png" Height="20"/>
+                </Button>
+                <Button Name="btnDeshacer" Click="BtnDeshacer_Click">
+                    <Image Source="Toolbar/undo.png" Height="20" />
+                </Button>
+                <Button Name="btnRehacer" Click="BtnRehacer_Click">
+                    <Image Height="20" Source="Toolbar/redo.png" />
+                </Button>
+                <Separator/>
+
+                <ToggleButton Name="btn_negrita" Click="Btn_negrita_Click">
+                    <Image Height="20" Source="Toolbar/bold.png" />
+                </ToggleButton>
+                <ToggleButton Name="btn_cursiva" Click="Btn_cursiva_Click">
+                    <Image Height="20" Source="Toolbar/italic.png" />
+                </ToggleButton>
+                <ComboBox Name="cmbFuentes" Width="100" SelectionChanged="CmbFuentes_SelectionChanged"/>
+            </ToolBar>
+        </ToolBarTray>
+        <StackPanel HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Horizontal">
+            <Slider Margin="-15,0,0,0" Value="{Binding ElementName=txtEnriquecido, Path=Padding.Left, Mode=TwoWay}" Width="{Binding ActualWidth, Converter={StaticResource AjustarTamanoVentana}, ElementName=txtEnriquecido, Mode=OneWay}" Orientation="Horizontal" Maximum="300"/>
+            <Slider Value="{Binding ElementName=txtEnriquecido, Path=Padding.Right, Mode=TwoWay}" Width="{Binding ActualWidth, Converter={StaticResource AjustarTamanoVentana}, ElementName=txtEnriquecido, Mode=OneWay}" Orientation="Horizontal" IsDirectionReversed="True" Maximum="300"/>
+        </StackPanel>
+        <ScrollViewer Background="DarkGray" Name="scroll_texto" DockPanel.Dock="Top">
+            <StackPanel HorizontalAlignment="Center"  Orientation="Horizontal">
+                <StackPanel>
+                    <Slider Value="{Binding ElementName=txtEnriquecido, Path=Padding.Top, Mode=TwoWay}" VerticalAlignment="Top" Orientation="Vertical" Height="{Binding ActualHeight, Converter={StaticResource AjustarTamanoVentana},ElementName=txtEnriquecido,Mode=OneWay}" Maximum="450" IsDirectionReversed="True"/>
+                    <Slider Value="{Binding ElementName=txtEnriquecido, Path=Padding.Bottom, Mode=TwoWay}" VerticalAlignment="Bottom" Orientation="Vertical" Height="{Binding ActualHeight, Converter={StaticResource AjustarTamanoVentana},ElementName=txtEnriquecido,Mode=OneWay}" Maximum="450"/>
+                </StackPanel>
+                <RichTextBox x:Name="txtEnriquecido" DockPanel.Dock="Top" Height="900" HorizontalAlignment="Center" Width="600" SelectionChanged="TxtEnriquecido_SelectionChanged"/>
+            </StackPanel>
+        </ScrollViewer>
+        
+    </DockPanel>
+</Window>

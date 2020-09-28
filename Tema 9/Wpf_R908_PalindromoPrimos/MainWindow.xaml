@@ -1,0 +1,49 @@
+﻿<Window x:Class="Wpf_R908_PalindromoPrimos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="WPF - Ejercicio 8 - Palindromos y lista de primos" Height="362" Width="784">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--PALÍNDROMOS-->
+        <StackPanel Margin="15" Grid.Column="0">
+            <Label Margin="15" FontSize="25" FontWeight="Black" Content="Palíndromo o no"/>
+            <ComboBox Name="cmb_palindromos" Margin="30,0,0,0" Width="289" HorizontalContentAlignment="Center" HorizontalAlignment="Left" SelectedIndex="0" TabIndex="1">
+                <ComboBoxItem Width="289" HorizontalContentAlignment="Center" Content="--"  Selected="evt_seleccionarPalindromo"/>
+                <ComboBoxItem Width="289" HorizontalContentAlignment="Center" Content="Amad a la dama" Selected="evt_seleccionarPalindromo"/>
+                <ComboBoxItem Width="289" HorizontalContentAlignment="Center" Content="Amigo no gima" Selected="evt_seleccionarPalindromo"/>
+                <ComboBoxItem Width="289" HorizontalContentAlignment="Center" Content="Luz azul" Selected="evt_seleccionarPalindromo"/>
+                <ComboBoxItem Width="289" HorizontalContentAlignment="Center" Content="Ana vana" Selected="evt_seleccionarPalindromo"/>
+            </ComboBox>
+
+            <StackPanel Margin="30,10,20,25" Orientation="Horizontal">
+                <Label Content="Introduce texto:" Margin="0,0,5,0"/>
+                <TextBox Name="txb_textoPalindromo" Width="190" TabIndex="2"/>
+            </StackPanel>
+            <Button Name="btn_comprobarPalindroma" Width="150" Height="35" Content="¿Es palíndroma?" Click="Btn_comprobarPalindroma_Click" TabIndex="3"/>
+            <TextBlock Name="txbl_resultPalindroma" Margin="20,20,20,20" FontWeight="Bold" FontSize="16" TextWrapping="Wrap"/>
+
+
+        </StackPanel>
+
+        <!--PRIMOS-->
+        <StackPanel Margin="15" Grid.Column="1">
+            <Label Margin="15" FontSize="25" FontWeight="Black" Content="Lista de primos"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5,0,5,0" Text="Introduce el número primo más alto a obtener:" TextAlignment="Center" TextWrapping="Wrap" Width="141"/>
+                <TextBox Name="txb_numerosPrimos" Margin="5,0,0,0" Width="150" TabIndex="4"/>
+            </StackPanel>
+            <Button Name="btn_Calcular" Margin="15" Width="100" Height="35" Content="Calcular" Click="Btn_Calcular_Click" TabIndex="5"/>
+            <ScrollViewer Height="115" Margin="15,0,15,0">
+                <ListView Name="ltv_listaPrimos" TabIndex="6" />
+            </ScrollViewer>
+
+        </StackPanel>
+    </Grid>
+</Window>

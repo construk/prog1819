@@ -158,7 +158,7 @@
             <summary>
             Pinta el menú dadas sus caracteristicas pasadas en el constructor. Puedes o no incluir las páginas del MenuPrincipal.
             </summary>
-            <param name="pintarPaginas">True para pintar la página actual y el número de páginas que tiene el menú. False para no mostrarlas.</param>
+            <param name="pintarPaginasYEnumerado">True para pintar la página actual y el número de páginas que tiene el menú y enumerar las opciones. False para no mostrarlas.</param>
         </member>
         <member name="M:App_R701_MenuPrincipal.MenuPrincipal.PaginasString">
             <summary>

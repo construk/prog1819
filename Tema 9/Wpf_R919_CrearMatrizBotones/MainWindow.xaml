@@ -1,0 +1,65 @@
+﻿<Window x:Class="Wpf_R919_CrearMatrizBotones.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_R919_CrearMatrizBotones"
+        mc:Ignorable="d"
+        Title="WPF - Ejercicio 19 - Crear Matriz(2D) de botones" SizeToContent="WidthAndHeight" Height="Auto" MinHeight="150" Width="auto" Name="winPrincipal">
+
+    <StackPanel Name="stcPanel"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30">
+        <StackPanel Margin="10,0,0,20" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button x:Name="btnCrear" IsEnabled="False" Padding="5" Content="Crear matríz de botones de:" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnCrear_Click"/>
+            <Label Margin="60,0,0,0" Content="Filas" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cmbFilas" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" SelectionChanged="CmbFilas_SelectionChanged" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}">
+                <ComboBoxItem Content="1"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="4"/>x
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="6"/>
+                <ComboBoxItem Content="7"/>
+                <ComboBoxItem Content="8"/>
+                <ComboBoxItem Content="9"/>
+                <ComboBoxItem Content="10"/>
+                <ComboBoxItem Content="11"/>
+                <ComboBoxItem Content="12"/>
+                <ComboBoxItem Content="13"/>
+                <ComboBoxItem Content="14"/>
+                <ComboBoxItem Content="15"/>
+                <ComboBoxItem Content="16"/>
+                <ComboBoxItem Content="17"/>
+                <ComboBoxItem Content="18"/>
+                <ComboBoxItem Content="19"/>
+                <ComboBoxItem Content="20"/>
+
+            </ComboBox>
+            <Label Content="Columnas" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ComboBox x:Name="cmbColumnas" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" SelectionChanged="CmbColumnas_SelectionChanged">
+                <ComboBoxItem Content="1"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="6"/>
+                <ComboBoxItem Content="7"/>
+                <ComboBoxItem Content="8"/>
+                <ComboBoxItem Content="9"/>
+                <ComboBoxItem Content="10"/>
+                <ComboBoxItem Content="11"/>
+                <ComboBoxItem Content="12"/>
+                <ComboBoxItem Content="13"/>
+                <ComboBoxItem Content="14"/>
+                <ComboBoxItem Content="15"/>
+                <ComboBoxItem Content="16"/>
+                <ComboBoxItem Content="17"/>
+                <ComboBoxItem Content="18"/>
+                <ComboBoxItem Content="19"/>
+                <ComboBoxItem Content="20"/>
+
+            </ComboBox>
+        </StackPanel>
+
+    </StackPanel>
+
+</Window>

@@ -1,0 +1,45 @@
+﻿<Window x:Class="Wpf_R906_RelojDigital.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="WPF - Ejercicio 6 - Reloj digital" Height="455" Width="806" MinWidth="806" MinHeight="455">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="239*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Name="lbl_hora" FontWeight="DemiBold" FontSize="100" Margin="0,50" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Grid.Row="1" Content="00:00:00" Foreground="White" Background="Black" Grid.ColumnSpan="4"/>
+        <Button Name="btb_marcha" Margin="20,0" Grid.Column="1" Grid.Row="2" Content="Marcha" Click="Btb_marcha_Click"/>
+        <Button Name="btb_parar" Margin="20,0" Grid.Column="2" Grid.Row="2" Content="Paro" Click="Btb_parar_Click" />
+        <Button Name="btn_alarma" Margin="20,0" Grid.Column="3" Grid.Row="2" Content="Alarma" Click="Btn_alarma_Click" />
+        <Button Name="btn_salir" Margin="20,0" Grid.Column="4" Grid.Row="2" Content="Salir" Click="Btn_salir_Click" />
+        <StackPanel Name="stcHora" Visibility="Visible" Orientation="Horizontal" Grid.Column="3" Grid.ColumnSpan="2"  Grid.Row="4" Margin="0,10" Grid.RowSpan="2">
+            <StackPanel Width="96">
+                <Label FontWeight="Bold" VerticalContentAlignment="Center"  Content="Hora y minuto:" Margin="0,0,0,30"/>
+                <Button Visibility="Hidden" Content="Establecer" HorizontalAlignment="Center" Margin="66,5,85,5" Click="Btn_establecer_Click"/>
+            </StackPanel>
+            <StackPanel Width="227" >
+                <TextBox x:Name="txb_horaAlarma" VerticalContentAlignment="Center" TextWrapping="Wrap" Margin="0,5,16,5" TextChanged="Txb_horaAlarma_TextChanged"/>
+                <Button IsEnabled="False" x:Name="btn_establecer" Content="Establecer" HorizontalAlignment="Center" Width="76" Margin="66,5,85,5" Click="Btn_establecer_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <StatusBar Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="6">
+            <TextBlock Name="txb_estado" Text="En marcha"/>
+        </StatusBar>
+    </Grid>
+</Window>

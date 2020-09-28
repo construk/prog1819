@@ -1,0 +1,2 @@
+Esto se escribe redireccionado de la clase Console su flujo hacia un fichero.
+Esto es escribe utilizando directamente el flujo creado, el que se utiliza para redireccionar el flujo de la consola.

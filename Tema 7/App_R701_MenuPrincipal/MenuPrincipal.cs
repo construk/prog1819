@@ -172,8 +172,8 @@ namespace App_R701_MenuPrincipal
         /// <summary>
         /// Pinta el menú dadas sus caracteristicas pasadas en el constructor. Puedes o no incluir las páginas del MenuPrincipal.
         /// </summary>
-        /// <param name="pintarPaginas">True para pintar la página actual y el número de páginas que tiene el menú. False para no mostrarlas.</param>
-        public void Pintar(bool pintarPaginas)
+        /// <param name="pintarPaginasYEnumerado">True para pintar la página actual y el número de páginas que tiene el menú y enumerar las opciones. False para no mostrarlas.</param>
+        public void Pintar(bool pintarPaginasYEnumerado)
         {
             if (estilo == EstiloTexto.alineadoIzquierda)
             {
@@ -190,12 +190,12 @@ namespace App_R701_MenuPrincipal
                 Console.SetCursorPosition(posicionMargen, 1);           //Posiciona escribir
                 Console.Write(FormatoTitulo(titulo, out tamanoTitulo));  //Escribir el título
                 Console.SetCursorPosition(1, Console.CursorTop + 2);    //Posicionar para escribir opciones
-                PintarOpciones();                                       //Pintar las opciones
+                PintarOpciones(pintarPaginasYEnumerado);                                       //Pintar las opciones
 
                 marco = new Marcos(new Coordenada(), new Coordenada(ComprobarMayorAnchoTexto(), AltoUsadoCuerpoOpciones + tamanoTitulo + 2), tipoMarco, color);
                 marco.Pinta(true, tamanoTitulo);
                 Console.WriteLine();
-                if (pintarPaginas)
+                if (pintarPaginasYEnumerado)
                 {
                     Console.Write(this.PaginasString().PadLeft(ComprobarMayorAnchoTexto() / 2 + 1));
                 }
@@ -320,6 +320,28 @@ namespace App_R701_MenuPrincipal
                 Console.CursorLeft = posicionMargen + 1;
                 Console.WriteLine((i + 1) + " - " + Escribir(opcionesMenu[i]));
             }
+        }
+        private void PintarOpciones(bool conEnumeracion)
+        {
+            if (conEnumeracion)
+            {
+                int numeroOpciones = opcionesMenu.Length;
+                for (int i = PaginaMenu * OpcionesPorPaginaMenu; i < (PaginaMenu * OpcionesPorPaginaMenu) + OpcionesPorPaginaMenu && i < opcionesMenu.Length; i++)
+                {
+                    Console.CursorLeft = posicionMargen + 1;
+                    Console.WriteLine((i + 1) + " - " + Escribir(opcionesMenu[i]));
+                }
+            }
+            else
+            {
+                int numeroOpciones = opcionesMenu.Length;
+                for (int i = PaginaMenu * OpcionesPorPaginaMenu; i < (PaginaMenu * OpcionesPorPaginaMenu) + OpcionesPorPaginaMenu && i < opcionesMenu.Length; i++)
+                {
+                    Console.CursorLeft = posicionMargen + 1;
+                    Console.WriteLine(Escribir(opcionesMenu[i]));
+                }
+            }
+            
         }
         /// <summary>
         /// Determina el mayor ancho del título en caso de que supere una línea.

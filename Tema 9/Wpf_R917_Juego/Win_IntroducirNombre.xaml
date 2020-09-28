@@ -1,0 +1,16 @@
+﻿<Window x:Class="Wpf_R917_Juego.Win_IntroducirNombre"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_R917_Juego"
+        mc:Ignorable="d"
+        Title="¡Has entrado en el Ranking!" Height="303" Width="387" ResizeMode="NoResize" DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}">
+    <Grid>
+        <TextBlock FontSize="30" HorizontalAlignment="Left" Margin="83,25,0,0" TextWrapping="Wrap" Text="¡Nuevo Record!" VerticalAlignment="Top" Height="50" Width="237"/>
+        <TextBlock TextAlignment="Center" FontSize="15" HorizontalAlignment="Left" Margin="83,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="66" Width="202"><Run Text="Acabas de entrar en el Ranking, introduce tu nombre para "/><Run Text="inmortalizar"/><Run Text="lo"/></TextBlock>
+        <TextBox Name="NombreNuevo" FontSize="20" HorizontalAlignment="Left" Height="34" Margin="93,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" TextChanged="NombreNuevo_TextChanged"/>
+        <Button IsEnabled="False" Name="btn_InsertarNombre" Content="Insertar" HorizontalAlignment="Left" Margin="154,207,0,0" VerticalAlignment="Top" Width="75" Click="Btn_InsertarNombre_Click"/>
+
+    </Grid>
+</Window>

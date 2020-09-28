@@ -1,0 +1,17 @@
+﻿<Application x:Class="Wpf_R920_TresEnRaya.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Name="estiloBotones" TargetType="Button" x:Key="fondo1">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter x:Name="blanco" Property="Background" Value="White"/>
+        </Style>
+        <Style x:Name="estiloBotones2" TargetType="Button" x:Key="fondo2">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="Background" Value="LightGreen"/>
+        </Style>
+    </Application.Resources>
+</Application>
